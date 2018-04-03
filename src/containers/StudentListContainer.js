@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import StudentTile from '../components/StudentTile'
+import StatusBar from '../components/StatusBar'
 import '../styles/style.css'
 
 export default class StudentListContainer extends PureComponent {
@@ -8,14 +9,18 @@ export default class StudentListContainer extends PureComponent {
         const students = [1,2,3,4]
         
         return (
-            <div className="StudentListContainer" style={{ display: "flex", flexDirection: 'row' }}> 
+            <div className="StudentListContainer">
 
-            {students.map( (id,index) => 
-                    <StudentTile key={index}/>
-            )}
-    
-            StudentListContainer
-                    
+                <StatusBar />
+                
+                <div className="StudentTiles" style={{ display: "flex", flexDirection: 'row' }}> 
+                {students.map( (id,index) => 
+                        <StudentTile key={index}/>
+                )}
+        
+                StudentListContainer
+                        
+                </div>
             </div>
         )
     }
