@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import LogInForm from '../components/LogInForm'
 import '../styles/style.css'
 
 export default class LogInContainer extends PureComponent {
@@ -7,6 +8,7 @@ export default class LogInContainer extends PureComponent {
         return (
             <div className="LogInContainer">
                 LogInContainer
+                <LogInForm/>
             </div>
         )
     }
