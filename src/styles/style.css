@@ -40,3 +40,14 @@
     /* display: flex;
     flex-direction: row; */
 }
+
+.BatchTile {
+    border: 1px dashed black;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 10px;
+    height: 50px;
+    width: 50px;
+    margin: 5%;
+    padding: 5%;
+}
