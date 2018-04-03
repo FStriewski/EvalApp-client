@@ -37,8 +37,6 @@
     font-size: 10px;
     height: 550px;
     margin: 2%;
-    /* display: flex;
-    flex-direction: row; */
 }
 
 .BatchTile {
@@ -50,4 +48,13 @@
     width: 50px;
     margin: 5%;
     padding: 5%;
+}
+
+.StudentListContainer {
+    border: 1px dotted black;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 10px;
+    height: 550px;
+    margin: 2%;
 }
