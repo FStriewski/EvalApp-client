@@ -10,9 +10,9 @@ export default class StudentListContainer extends PureComponent {
         return (
             <div className="StudentListContainer" style={{ display: "flex", flexDirection: 'row' }}> 
 
-            {/* {students.map( (id,index) => 
+            {students.map( (id,index) => 
                     <StudentTile key={index}/>
-            )} */}
+            )}
     
             StudentListContainer
                     
