@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TitleBar from './containers/TitleBar';
 import LogInContainer from './containers/LogInContainer';
+import BatchContainer from './containers/BatchContainer';
 import './App.css';
 
 class App extends Component {
@@ -8,7 +9,8 @@ class App extends Component {
     return (
       <div className="App">
         <TitleBar />
-        <LogInContainer/>
+        {/* <LogInContainer/> */}
+        <BatchContainer /> 
         This is the app
       </div>
     );
