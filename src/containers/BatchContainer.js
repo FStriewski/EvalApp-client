@@ -5,10 +5,16 @@ import '../styles/style.css'
 export default class BatchContainer extends PureComponent {
 
     render() {
+        const batches = [1,2,3,4]
+        
         return (
-            <div className="BatchContainer">
-                <BatchTile />
-                BatchContainer
+            <div className="BatchContainer" style={{ display: "flex", flexDirection: 'row' }}> 
+
+            {batches.map( (id,index) => 
+                    <BatchTile key={index}/>
+            )}
+    
+            BatchContainer
                 
             </div>
         )
