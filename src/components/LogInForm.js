@@ -6,20 +6,20 @@ export default class LogInForm extends PureComponent {
 
     render() {
         return (
-            <form id="LogInForm">
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" />
-                </div>
+            <div class="row justify-content-center" id="LogInForm-container">
+                    <form id="LogInForm">
+                        <div class="form-group">
+                            <label htmlFor="email">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email"/>
+                        </div>
+                        <div class="form-group">
+                            <label htmlFor="password">Password</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password"/>
+                        </div>
 
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" id="password" />
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
                 </div>
-                <br/>
-
-                <button type="submit">Login</button>
-            </form>
         )
     }
 }

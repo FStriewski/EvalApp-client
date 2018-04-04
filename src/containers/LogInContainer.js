@@ -7,7 +7,7 @@ export default class LogInContainer extends PureComponent {
     render() {
         return (
             <div className="LogInContainer">
-                LogInContainer
+                
                 <LogInForm/>
             </div>
         )
