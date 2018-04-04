@@ -21,6 +21,7 @@ export default class BatchForm extends PureComponent {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
+                <h3>Create a batch</h3>
                 <div>
                     <label htmlFor="number">Batch number: &nbsp;</label>
 
@@ -46,7 +47,7 @@ export default class BatchForm extends PureComponent {
                     } onChange={this.handleChange} />
                 </div>
 
-                <button type="submit">Create new batch</button>
+                <button type="submit">Create</button>
             </form>
         )
     }

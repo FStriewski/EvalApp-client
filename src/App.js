@@ -15,11 +15,11 @@ class App extends Component {
           <TitleBar />
 
           <Route exact path="/" render={() => <Redirect to="/login" />} />
-
           <Route exact path="/login" component={LogInContainer} />
           <Route exact path="/batches" component={BatchList} />
           <Route exact path="/students" component={StudentListContainer} />
           <Route exact path="/evaluation" component={EvalContainer} />
+          <Route exact path="/batches/:id" component={StudentListContainer} />
 
         </div>
       </Router>

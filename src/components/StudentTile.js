@@ -1,14 +1,29 @@
-import React, { PureComponent } from 'react'
-import '../styles/style.css'
+// import React, { PureComponent } from 'react'
+// import PropTypes from 'prop-types'
+// import { connect } from 'react-redux'
+// import '../styles/style.css'
 
-export default class StudentTile extends PureComponent {
+//  class StudentTile extends PureComponent {
 
-    render() {
-        return (
-            <div className="StudentTile">
-                StudentTile
+//     render() {
+//         const { batch } = this.props
 
-            </div>
-        )
-    }
-}
+//         return (
+//             <div className="StudentTile">
+
+//             </div>
+//         )
+//     }
+// }
+
+// // const mapStateToProps = (state, props) => ({
+
+// //     student: state.users
+// // })
+
+//  const mapStateToProps = ({batches}) => ({batch: batches.filter(batch => batch.id === 1)})
+ 
+// export default connect(mapStateToProps, {})(StudentTile)
+
+
+// 

@@ -12,7 +12,7 @@ import '../styles/style.css'
     
 //! Test functionality with string but needs to be date later on 
     static propTypes = {
-         products: PropTypes.arrayOf(PropTypes.shape({
+         batches: PropTypes.arrayOf(PropTypes.shape({
              number: PropTypes.number.isRequired,
              startdate: PropTypes.string.isRequired,
              enddate: PropTypes.string.isRequired
@@ -47,12 +47,12 @@ import '../styles/style.css'
 
                 {batches.map( (batch,index) =>( 
                         <div
-                            key={index}
+                            key={batch.id}
                             className="BatchTile"
                         >
                         <p>{batch.number}</p>
 {/* !Links need fixing once StudentListContainer is in       */}
-                            <Link to={'/students'} component={StudentListContainer}>Go To</Link> 
+                            <Link to={`/batches/${batch.id}`} >Go To</Link> 
                         <p>Start: {batch.startdate} - End:{batch.enddate}</p>
                         </div>
                 ))}

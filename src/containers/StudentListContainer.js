@@ -1,35 +1,81 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
-import StudentTile from '../components/StudentTile'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import BatchList from '../components/BatchList';
 import StatusBar from '../components/StatusBar'
+import StudentForm from '../components/StudentForm'
+import { fetchStudents, createStudent } from '../actions/students'
+import { fetchBatches } from '../actions/batches'
+import { fetchOneBatch } from '../actions/batches'
 import '../styles/style.css'
 
-export default class StudentListContainer extends PureComponent {
+import StudentTile from '../components/StudentTile'
 
+
+ class StudentListContainer extends PureComponent {
+
+    //  static propTypes = {
+    //      students: PropTypes.arrayOf(PropTypes.shape({
+    //          name: PropTypes.string.isRequired,
+    //          link: PropTypes.string.isRequired
+    //      })).isRequired
+    //  }
+
+
+    //Don't remove
+     componentWillMount(props) {
+         this.props.fetchOneBatch(this.props.match.params.id)
+     }
+
+  
     render() {
-        const students = [1,2,3,4]
-        
-        return (
-            <div className="StudentListContainer">
+        const {batches} = this.props
+        if (this.props.batches === undefined){
+            console.log("not there")
+            return 'Waiting...'}
+            
+            if(!this.props.batches.students){
+                console.log("is null")
+                return null
+            }
 
-                <p>StudentListContainer</p>
-
-                <Link to={'/batches'} component={BatchList}>Back</Link>
-
-                <StatusBar />
-
-                <div className="StudentTiles" style={{ display: "flex", flexDirection: 'row' }}> 
-                {students.map( (id,index) => 
-                        <StudentTile key={index}/>
-                )}
-        
+        let students=batches.students
+       
+        console.log(1)
+        console.log(batches)
+        console.log(2)  
+        console.log(students)
+        if(students){
+            return (
+                <div className="StudentListContainer">
                 
-                        
-                </div>
+                    <p>StudentListContainer</p>
 
-                <button>Randomize!</button>
-            </div>
-        )
+                    <StatusBar />
+
+                    <StudentForm/>  
+
+                    {/* <Link to={'/batches'} component={BatchList}>Back</Link> */}
+        
+                    <div>
+                
+                    {students.map( (student, index) => (
+                            <div className="StudentTile">{student.name}</div>
+                    ))}
+                    </div>
+                    
+                    <button>Randomize!</button>
+                </div>
+            )
+        }
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        batches:  state.batches,
+    }
+}
+
+export default connect(mapStateToProps, { fetchBatches, fetchOneBatch, fetchStudents, createStudent })(StudentListContainer)
