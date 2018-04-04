@@ -1,0 +1,3 @@
+
+export const FETCH_BATCHES = 'FETCH_BATCHES'
+export const FETCH_ONE_BATCH = 'FETCH_ONE_BATCH'

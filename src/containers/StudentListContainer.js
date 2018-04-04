@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import StudentTile from '../components/StudentTile'
-import BatchContainer from './BatchContainer';
+import BatchList from '../components/BatchList';
 import StatusBar from '../components/StatusBar'
 import '../styles/style.css'
 
@@ -15,7 +15,7 @@ export default class StudentListContainer extends PureComponent {
 
                 <p>StudentListContainer</p>
 
-                <Link to={'/batches'} component={BatchContainer}>Back</Link>
+                <Link to={'/batches'} component={BatchList}>Back</Link>
 
                 <StatusBar />
 
