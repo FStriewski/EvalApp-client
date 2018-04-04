@@ -61,12 +61,7 @@ import StudentTile from '../components/StudentTile'
                     <div>
                 
                     {students.map( (student, index) => (
-                        // <StudentTile
-                        //     key={index}
-                        //     name={student.name}
-
-                        // />
-                        <div>1</div>
+                            <div className="StudentTile">{student.name}</div>
                     ))}
                     </div>
                     
