@@ -76,3 +76,22 @@
     margin: 5%;
     padding: 5%;
 }
+
+.EvalContainer {
+    border: 1px dotted black;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 10px;
+    height: 550px;
+    margin: 2%;
+}
+
+#EvalForm {
+    border: 1px dashed black;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 10px;
+    height: 50px;
+    margin: 10%;
+    padding: 10%;
+}

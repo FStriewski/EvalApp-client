@@ -3,6 +3,7 @@ import TitleBar from './containers/TitleBar';
 import LogInContainer from './containers/LogInContainer';
 import BatchContainer from './containers/BatchContainer';
 import StudentListContainer from './containers/StudentListContainer';
+import EvalContainer from './containers/EvalContainer';
 import './App.css';
 
 class App extends Component {
@@ -12,7 +13,8 @@ class App extends Component {
         <TitleBar />
         {/* <LogInContainer/> */}
         {/* <BatchContainer />  */}
-        <StudentListContainer />
+        {/* <StudentListContainer /> */}
+        <EvalContainer />
         This is the app
       </div>
     );
