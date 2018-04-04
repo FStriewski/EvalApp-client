@@ -1,35 +1,52 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
-import StudentTile from '../components/StudentTile'
+import { connect } from 'react-redux'
 import BatchList from '../components/BatchList';
 import StatusBar from '../components/StatusBar'
+import { fetchStudents, createStudent } from '../actions/students'
 import '../styles/style.css'
 
-export default class StudentListContainer extends PureComponent {
+
+ class StudentListContainer extends PureComponent {
+
+    componentWillMount = () => {
+        this.props.fetchBatches()
+    }
 
     render() {
-        const students = [1,2,3,4]
+        const { students } = this.props
         
         return (
             <div className="StudentListContainer">
 
                 <p>StudentListContainer</p>
 
-                <Link to={'/batches'} component={BatchList}>Back</Link>
-
                 <StatusBar />
 
-                <div className="StudentTiles" style={{ display: "flex", flexDirection: 'row' }}> 
-                {students.map( (id,index) => 
-                        <StudentTile key={index}/>
-                )}
-        
-                
+                <Link to={'/batches'} component={BatchList}>Back</Link>
+      
+                {students.map((student, index) => (
+                    <div
+                        key={index}
+                        className="StudentTile"
+                    >
+                        <p>ADD PIC</p>
+                        <p>{student.name}</p>
+{/* !Links need fixing once Students are in       */}
+                        {/* <Link to={'/student'} component={StudentListContainer}>Go To</Link> */}
+                    </div>
+                ))}
                         
-                </div>
-
                 <button>Randomize!</button>
             </div>
         )
     }
 }
+
+const mapStateToProps = function (state) {
+    return {
+        students: state.students
+    }
+}
+
+export default connect(mapStateToProps, { fetchStudents, createStudent })(StudentListContainer)
