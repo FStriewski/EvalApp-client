@@ -26,17 +26,22 @@ import StudentTile from '../components/StudentTile'
     //Don't remove
      componentWillMount(props) {
          this.props.fetchOneBatch(this.props.match.params.id)
+         //this.props.fetchOneBatch(1)
      }
 
   
     render() {
-        const {batch } = this.props
-        if(!batch) return null
+        const {batches} = this.props
+        if (this.props.batches === undefined) return 'Waiting...'
+        if(!this.props.batches) return null
 
-        const students=[1,2]
+        const students=batches.students
        
-
-        console.log(this.props.batches)
+        console.log(1)
+        console.log(batches)
+        console.log(2)  
+        console.log(students)
+  
         return (
             <div className="StudentListContainer">
             
@@ -48,17 +53,17 @@ import StudentTile from '../components/StudentTile'
 
                 <Link to={'/batches'} component={BatchList}>Back</Link>
       
-                
+                <div>
             
-
-                {students.map((student, index) => (
+                {/* {this.props.batches.students.map( (student, index) => (
                     // <StudentTile
                     //     key={index}
                     //     name={student.name}
 
                     // />
-                    <div>1{student.name}</div>
-                ))}
+                    <div>1</div>
+                ))} */}
+                </div>
                    
                 <button>Randomize!</button>
             </div>
@@ -66,9 +71,9 @@ import StudentTile from '../components/StudentTile'
     }
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state) => {
     return {
-          batch:  state.batch,
+        batches:  state.batches,
     }
 }
 
