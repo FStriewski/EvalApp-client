@@ -1,20 +1,28 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import LogInContainer from '../containers/LogInContainer';
+import StudentListContainer from '../containers/StudentListContainer';
 import BatchForm from './BatchForm'
 import { fetchBatches, createBatch } from '../actions/batches'
 import '../styles/style.css'
 
  class BatchContainer extends PureComponent {
+    
+//! Test functionality with string but needs to be date later on 
+    static propTypes = {
+         products: PropTypes.arrayOf(PropTypes.shape({
+             number: PropTypes.number.isRequired,
+             startdate: PropTypes.string.isRequired,
+             enddate: PropTypes.string.isRequired
+         })).isRequired
+     }
 
     componentWillMount = () => {
         this.props.fetchBatches()
     }
-    
-    handleClick = () => {
-        alert(this.props.batch.number)
-    }
+
 
      createBatch = (batch) => {
          this.props.createBatch(batch)
@@ -41,14 +49,13 @@ import '../styles/style.css'
                         <div
                             key={index}
                             className="BatchTile"
-                            onClick={this.handleClick}
                         >
                         <p>{batch.number}</p>
+{/* !Links need fixing once StudentListContainer is in       */}
+                            <Link to={'/students'} component={StudentListContainer}>Go To</Link> 
                         <p>Start: {batch.startdate} - End:{batch.enddate}</p>
                         </div>
-                )
-
-                )}
+                ))}
                 </div>
     
             </div>
