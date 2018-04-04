@@ -12,7 +12,7 @@ export default class StudentListContainer extends PureComponent {
             <div className="StudentListContainer">
 
                 <StatusBar />
-                
+
                 <div className="StudentTiles" style={{ display: "flex", flexDirection: 'row' }}> 
                 {students.map( (id,index) => 
                         <StudentTile key={index}/>
@@ -21,6 +21,8 @@ export default class StudentListContainer extends PureComponent {
                 StudentListContainer
                         
                 </div>
+
+                <button>Randomize!</button>
             </div>
         )
     }
