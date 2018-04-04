@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react'
+import { Link } from 'react-router-dom'
 import StudentTile from '../components/StudentTile'
+import BatchContainer from './BatchContainer';
 import StatusBar from '../components/StatusBar'
 import '../styles/style.css'
 
@@ -11,6 +13,10 @@ export default class StudentListContainer extends PureComponent {
         return (
             <div className="StudentListContainer">
 
+                <p>StudentListContainer</p>
+
+                <Link to={'/batches'} component={BatchContainer}>Back</Link>
+
                 <StatusBar />
 
                 <div className="StudentTiles" style={{ display: "flex", flexDirection: 'row' }}> 
@@ -18,7 +24,7 @@ export default class StudentListContainer extends PureComponent {
                         <StudentTile key={index}/>
                 )}
         
-                StudentListContainer
+                
                         
                 </div>
 
