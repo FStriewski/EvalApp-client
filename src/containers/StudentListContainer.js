@@ -10,7 +10,7 @@ import '../styles/style.css'
  class StudentListContainer extends PureComponent {
 
     componentWillMount = () => {
-        this.props.fetchBatches()
+        this.props.fetchStudents()
     }
 
     render() {
