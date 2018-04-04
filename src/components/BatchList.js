@@ -43,7 +43,7 @@ import '../styles/style.css'
                     <div className="list-group">
                         {batches.map( (batch, index) =>( 
 
-                                <a href={batch.id} className="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href={"batches/" + batch.id} className="list-group-item list-group-item-action flex-column align-items-start">
                                     <div className="d-flex w-100 justify-content-between">
                                         <h5 className="mb-1">Batch {batch.number}</h5>
                                     </div>
