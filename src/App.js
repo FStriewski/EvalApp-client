@@ -5,6 +5,7 @@ import LogInContainer from './containers/LogInContainer';
 import BatchList from './components/BatchList';
 import StudentListContainer from './containers/StudentListContainer';
 import EvalContainer from './containers/EvalContainer';
+
 import './App.css';
 
 class App extends Component {
