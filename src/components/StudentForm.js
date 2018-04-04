@@ -21,7 +21,7 @@ export default class StudentForm extends PureComponent {
             <form onSubmit={this.handleSubmit}>
             <h3>Create a student</h3>
                 <div>
-                    <label htmlFor="name">Full name: &nbsp;</label>
+                    <label htmlFor="name">Full Name: &nbsp;</label>
 
                     <input name="name" id="name" value={
                         this.state.name || ''
@@ -29,9 +29,9 @@ export default class StudentForm extends PureComponent {
                 </div>
 
                 <div>
-                    <label htmlFor="imagelink">Link to img: &nbsp;</label>
+                    <label htmlFor="link">Link: &nbsp;</label>
 
-                    <input name="imagelink" id="imagelink" value={
+                    <input name="link" id="link" value={
                         this.state.link || ''
                     } onChange={this.handleChange} />
                 </div>
