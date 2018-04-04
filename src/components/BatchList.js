@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 //import BatchTile from '../components/BatchTile'
 import LogInContainer from '../containers/LogInContainer';
+import BatchForm from './BatchForm'
 import { fetchBatches } from '../actions/batches'
 import '../styles/style.css'
 
@@ -26,6 +27,7 @@ import '../styles/style.css'
             <p>BatchContainer</p>
     
                 <Link to={'/login'} component={LogInContainer}>Back</Link> 
+                <BatchForm />
                 
                 <div
                  style={{ display: "flex", flexDirection: 'column' }}> 
