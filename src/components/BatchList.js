@@ -32,8 +32,7 @@ import '../styles/style.css'
     render() {
         const { batches } = this.props
         
-        return (
-            
+        return (       
             <div className="BatchContainer">
             <p>BatchContainer</p>
     
@@ -41,23 +40,18 @@ import '../styles/style.css'
                
                 <BatchForm onSubmit={this.createBatch} />
                 
-                <div
-                 style={{ display: "flex", flexDirection: 'column' }}> 
+                    <div className="list-group">
+                        {batches.map( (batch, index) =>( 
 
+                                <a href={batch.id} className="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div className="d-flex w-100 justify-content-between">
+                                        <h5 className="mb-1">Batch {batch.number}</h5>
+                                    </div>
+                                    <p className="mb-1">Start: {batch.startdate}  --- End: {batch.enddate}</p>
+                                </a>
 
-                {batches.map( (batch,index) =>( 
-                        <div
-                            key={batch.id}
-                            className="BatchTile"
-                        >
-                        <p>{batch.number}</p>
-{/* !Links need fixing once StudentListContainer is in       */}
-                            <Link to={`/batches/${batch.id}`} >Go To</Link> 
-                        <p>Start: {batch.startdate} - End:{batch.enddate}</p>
-                        </div>
-                ))}
-                </div>
-    
+                        ))}
+                    </div>
             </div>
         )
     }

@@ -51,21 +51,24 @@ import StudentTile from '../components/StudentTile'
                 <div className="StudentListContainer">
                 
                     <p>StudentListContainer</p>
-
-                    <StatusBar />
-
                     <StudentForm/>  
 
-                    {/* <Link to={'/batches'} component={BatchList}>Back</Link> */}
+                    <div class="row justify-content-center" >
+                        <StatusBar />
+                        <button className="btn btn-danger ">Get random</button>
+                    </div>
+                    <br/>
         
-                    <div>
-                
-                    {students.map( (student, index) => (
-                            <div className="StudentTile">{student.name}</div>
-                    ))}
+                    <div className="list-group">
+                        {students.map( (student, index) => (
+                            <a href={"../students/"+ student.id + "/evaluation" } className=" w-25 p-3 list-group-item list-group-item-action flex-row align-items-start">
+                                <div className=" d-flex flex-wrap w-100 justify-content-between">
+                                    <h5 className="mb-1">{student.name}</h5>
+                                </div>
+                            </a>
+                        ))}
                     </div>
                     
-                    <button>Randomize!</button>
                 </div>
             )
         }

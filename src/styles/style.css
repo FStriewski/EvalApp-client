@@ -1,46 +1,26 @@
-.TitleBar {
-    border: 1px dotted black;
-    border-radius: 3px;
-    font-family: monospace;
-    font-size: 10px;
-    height: 35px;
-    margin: 2%;
-}
+
 
 .StatusBar {
     border: 1px dotted blue;
     border-radius: 3px;
-    font-family: monospace;
     font-size: 10px;
-    height: 35px;
-    margin: 4%;
+    width: 60%;
 }
 
-.LogInContainer {
-    border: 1px dotted black;
-    border-radius: 3px;
-    font-family: monospace;
-    font-size: 10px;
-    height: 350px;
-    margin: 2%;
-    /* display: flex;
-    flex-direction: row; */
+#LogInForm-container {
+    margin: 5%;
 }
 
 #LogInForm {
-    border: 1px dashed black;
-    border-radius: 3px;
-    font-family: monospace;
-    font-size: 10px;
-    height: 50px;
-    margin: 5%;
-    padding: 5%;
+    font-size: 15px;
+    width: 40%;
+    margin: 1%;
+    padding-left: 1%;
 }
 
 .BatchContainer {
     border: 1px dotted black;
     border-radius: 3px;
-    font-family: monospace;
     font-size: 10px;
     height: 550px;
     margin: 2%;
@@ -57,13 +37,19 @@
     padding: 1%;
 }
 
+
 .StudentListContainer {
     border: 1px dotted black;
     border-radius: 3px;
-    font-family: monospace;
+    
     font-size: 10px;
     height: 550px;
     margin: 2%;
+}
+
+#StudentForm {
+    font-size: 10px;
+    padding-left: 1%;
 }
 
 .StudentTile {
@@ -77,23 +63,25 @@
     padding: 5%;
 }
 
+#BatchForm {
+    font-size: 10px;
+    padding-left: 1%;
+}
+
+
 .EvalContainer {
     border: 1px dotted black;
     border-radius: 3px;
-    font-family: monospace;
     font-size: 10px;
     height: 550px;
     margin: 2%;
 }
 
 #EvalForm {
-    border: 1px dashed black;
-    border-radius: 3px;
-    font-family: monospace;
     font-size: 10px;
     height: 150px;
-    margin: 10%;
-    padding: 10%;
+    margin: 2%;
+    padding: 2%;
 }
 
 .ScoreTile {
