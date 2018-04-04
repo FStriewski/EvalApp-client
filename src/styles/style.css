@@ -46,6 +46,7 @@
     height: 550px;
     margin: 2%;
 }
+
 #StudentForm {
     font-size: 10px;
     padding-left: 1%;
@@ -68,24 +69,19 @@
 }
 
 
-
 .EvalContainer {
     border: 1px dotted black;
     border-radius: 3px;
-    font-family: monospace;
     font-size: 10px;
     height: 550px;
     margin: 2%;
 }
 
 #EvalForm {
-    border: 1px dashed black;
-    border-radius: 3px;
-    font-family: monospace;
     font-size: 10px;
     height: 150px;
-    margin: 10%;
-    padding: 10%;
+    margin: 2%;
+    padding: 2%;
 }
 
 .ScoreTile {
