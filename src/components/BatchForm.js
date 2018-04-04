@@ -21,20 +21,24 @@ export default class BatchForm extends PureComponent {
             <form onSubmit={this.handleSubmit}>
                 <div>
                     <label htmlFor="number">Batch number: &nbsp;</label>
+
                     <input name="number" id="number" value={
                         this.state.number || ''
                     } onChange={this.handleChange} />
                 </div>
 
                 <div>
-                    <label htmlFor="startdate">Start Date &nbsp;&nbsp;</label>
+                    <label htmlFor="startdate">Start Date: &nbsp;</label>
+
                     <input name="startdate" id="startdate" value={
-                        Number(this.state.startdate) || ''
+                        this.state.startdate || ''
                     } onChange={this.handleChange} />
                 </div>
 
+
                 <div>
-                    <label htmlFor="enddate">End Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+                    <label htmlFor="enddate">End Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+
                     <input name="enddate" id="enddate" value={
                         this.state.enddate || ''
                     } onChange={this.handleChange} />
