@@ -32,8 +32,7 @@ import '../styles/style.css'
     render() {
         const { batches } = this.props
         
-        return (
-            
+        return (       
             <div className="BatchContainer">
             <p>BatchContainer</p>
     
@@ -53,7 +52,6 @@ import '../styles/style.css'
 
                         ))}
                     </div>
-    
             </div>
         )
     }
