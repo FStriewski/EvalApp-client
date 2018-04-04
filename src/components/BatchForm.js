@@ -20,35 +20,33 @@ export default class BatchForm extends PureComponent {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <h3>Create a batch</h3>
-                <div>
-                    <label htmlFor="number">Batch number: &nbsp;</label>
+            <div class="row justify-content-center" id="BatchForm-container">
+                <form className="form-inline" id="BatchForm" onSubmit={this.handleSubmit}>
 
-                    <input name="number" id="number" value={
-                        this.state.number || ''
-                    } onChange={this.handleChange} />
-                </div>
+                    <div className="form-group">
+                        <label htmlFor="number"></label>
+                        <input className="form-control mb-2 mr-sm-2"  name="number" id="number" value={
+                            this.state.number || ''
+                        } onChange={this.handleChange} placeholder="Enter batch number" />
+                    </div>
 
-                <div>
-                    <label htmlFor="startdate">Start Date: &nbsp;</label>
+                    <div className="form-group">
+                        <label htmlFor="startdate"></label>
+                        <input className="form-control mb-2 mr-sm-2" name="startdate" id="startdate" value={
+                            this.state.startdate || ''
+                        } onChange={this.handleChange} placeholder="Enter Start Date" />
+                    </div>
 
-                    <input name="startdate" id="startdate" value={
-                        this.state.startdate || ''
-                    } onChange={this.handleChange} />
-                </div>
+                    <div className="form-group">
+                        <label htmlFor="enddate"></label>
+                        <input className="form-control mb-2 mr-sm-2" name="enddate" id="enddate" value={
+                            this.state.enddate || ''
+                        } onChange={this.handleChange} placeholder="Enter End Date" />
+                    </div>
 
-
-                <div>
-                    <label htmlFor="enddate">End Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
-
-                    <input name="enddate" id="enddate" value={
-                        this.state.enddate || ''
-                    } onChange={this.handleChange} />
-                </div>
-
-                <button type="submit">Create</button>
-            </form>
+                    <button type="submit" className="btn btn-secondary mb-2 ">Add</button>
+                </form>
+            </div>
         )
     }
 }

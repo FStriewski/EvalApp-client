@@ -23,7 +23,6 @@
 .BatchContainer {
     border: 1px dotted black;
     border-radius: 3px;
-    font-family: monospace;
     font-size: 10px;
     height: 550px;
     margin: 2%;
@@ -38,6 +37,12 @@
     width: 200px;
     margin: 1%;
     padding: 1%;
+}
+
+
+#BatchForm {
+    font-size: 10px;
+    padding-left: 1%;
 }
 
 .StudentListContainer {
