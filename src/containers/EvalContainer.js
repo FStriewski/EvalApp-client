@@ -8,6 +8,8 @@ export default class EvalContainer extends PureComponent {
         return (
             <div className="EvalContainer">
                 EvalContainer
+            <p>Studentname</p>
+            <p>Batchname</p>
                 <EvalForm />
             </div>
         )
