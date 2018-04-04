@@ -51,10 +51,10 @@ import StudentTile from '../components/StudentTile'
                 <div className="StudentListContainer">
                 
                     <p>StudentListContainer</p>
+                    <StudentForm/>  
 
                     <StatusBar />
 
-                    <StudentForm/>  
 
                     {/* <Link to={'/batches'} component={BatchList}>Back</Link> */}
         

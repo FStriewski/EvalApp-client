@@ -18,30 +18,28 @@ export default class StudentForm extends PureComponent {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-            <h3>Create a student</h3>
-                <div>
-                    <label htmlFor="name">Full Name: &nbsp;</label>
+            <div class="row justify-content-center" id="StudentForm-container">
+                <form className="form-inline" id="StudentForm" onSubmit={this.handleSubmit}>
 
-                    <input name="name" id="name" value={
-                        this.state.name || ''
-                    } onChange={this.handleChange} />
-                </div>
+                    <div className="form-group">
+                        <label htmlFor="name"></label>
+                        <input className="form-control mb-2 mr-sm-2" name="name" id="name" value={
+                            this.state.name || ''
+                        } onChange={this.handleChange} placeholder="Name" />
+                    </div>
 
-                <div>
-                    <label htmlFor="link">Link: &nbsp;</label>
+                    <div className="form-group">
+                        <label htmlFor="link"></label>
+                        <input className="form-control mb-2 mr-sm-2" name="link" id="link" value={
+                            this.state.link || ''
+                        } onChange={this.handleChange} placeholder="Link" />
+                    </div>
 
-                    <input name="link" id="link" value={
-                        this.state.link || ''
-                    } onChange={this.handleChange} />
-                </div>
-
-
-                <button type="submit">Create</button>
-
-    {/* !This button might need to move or get a proper event handler */}
-                <button type="submit">Edit</button>
-            </form>
+                    <button type="submit" className="btn btn-secondary mb-2 mr-sm-2 ">Add</button>
+                    {/* !This button might need to move or get a proper event handler */}
+                    <button type="submit" className="btn btn-secondary mb-2" disabled>Edit</button>
+                </form>
+            </div>
         )
     }
 }

@@ -40,18 +40,18 @@
 }
 
 
-#BatchForm {
-    font-size: 10px;
-    padding-left: 1%;
-}
 
 .StudentListContainer {
     border: 1px dotted black;
     border-radius: 3px;
-    font-family: monospace;
+    
     font-size: 10px;
     height: 550px;
     margin: 2%;
+}
+#StudentForm {
+    font-size: 10px;
+    padding-left: 1%;
 }
 
 .StudentTile {
@@ -64,6 +64,13 @@
     margin: 5%;
     padding: 5%;
 }
+
+#BatchForm {
+    font-size: 10px;
+    padding-left: 1%;
+}
+
+
 
 .EvalContainer {
     border: 1px dotted black;
