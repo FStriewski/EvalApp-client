@@ -26,48 +26,54 @@ import StudentTile from '../components/StudentTile'
     //Don't remove
      componentWillMount(props) {
          this.props.fetchOneBatch(this.props.match.params.id)
-         //this.props.fetchOneBatch(1)
      }
 
   
     render() {
         const {batches} = this.props
-        if (this.props.batches === undefined) return 'Waiting...'
-        if(!this.props.batches) return null
+        if (this.props.batches === undefined){
+            console.log("not there")
+            return 'Waiting...'}
+            
+            if(!this.props.batches.students){
+                console.log("is null")
+                return null
+            }
 
-        const students=batches.students
+        let students=batches.students
        
         console.log(1)
         console.log(batches)
         console.log(2)  
         console.log(students)
-  
-        return (
-            <div className="StudentListContainer">
-            
-                <p>StudentListContainer</p>
+        if(students){
+            return (
+                <div className="StudentListContainer">
+                
+                    <p>StudentListContainer</p>
 
-                <StatusBar />
+                    <StatusBar />
 
-                <StudentForm/>  
+                    <StudentForm/>  
 
-                <Link to={'/batches'} component={BatchList}>Back</Link>
-      
-                <div>
-            
-                {/* {this.props.batches.students.map( (student, index) => (
-                    // <StudentTile
-                    //     key={index}
-                    //     name={student.name}
+                    {/* <Link to={'/batches'} component={BatchList}>Back</Link> */}
+        
+                    <div>
+                
+                    {students.map( (student, index) => (
+                        // <StudentTile
+                        //     key={index}
+                        //     name={student.name}
 
-                    // />
-                    <div>1</div>
-                ))} */}
+                        // />
+                        <div>1</div>
+                    ))}
+                    </div>
+                    
+                    <button>Randomize!</button>
                 </div>
-                   
-                <button>Randomize!</button>
-            </div>
-        )
+            )
+        }
     }
 }
 
