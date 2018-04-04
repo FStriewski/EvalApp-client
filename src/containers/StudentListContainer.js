@@ -32,6 +32,8 @@ import StudentTile from '../components/StudentTile'
     render() {
         const {batch } = this.props
         if(!batch) return null
+
+        const students=[1,2]
        
 
         console.log(this.props.batches)
@@ -47,13 +49,15 @@ import StudentTile from '../components/StudentTile'
                 <Link to={'/batches'} component={BatchList}>Back</Link>
       
                 
-                {batch.students.map((student, index) => (
+            
+
+                {students.map((student, index) => (
                     // <StudentTile
                     //     key={index}
                     //     name={student.name}
 
                     // />
-                    <div>{student.name}</div>
+                    <div>1{student.name}</div>
                 ))}
                    
                 <button>Randomize!</button>
