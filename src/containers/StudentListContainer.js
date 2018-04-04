@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import BatchList from '../components/BatchList';
 import StatusBar from '../components/StatusBar'
+import StudentForm from '../components/StudentForm'
 import { fetchStudents, createStudent } from '../actions/students'
 import '../styles/style.css'
 
@@ -22,6 +23,8 @@ import '../styles/style.css'
                 <p>StudentListContainer</p>
 
                 <StatusBar />
+
+                <StudentForm/>
 
                 <Link to={'/batches'} component={BatchList}>Back</Link>
       
