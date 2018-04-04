@@ -12,7 +12,9 @@ export default class BatchForm extends PureComponent {
         const { name, value } = event.target
 
         this.setState(
-             { [name]: value }
+            (name === "number")
+                ? { number: Number(value) }
+                : { [name]: value }
         )
     }
 

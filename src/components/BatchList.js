@@ -1,21 +1,24 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-//import BatchTile from '../components/BatchTile'
 import LogInContainer from '../containers/LogInContainer';
 import BatchForm from './BatchForm'
-import { fetchBatches } from '../actions/batches'
+import { fetchBatches, createBatch } from '../actions/batches'
 import '../styles/style.css'
 
  class BatchContainer extends PureComponent {
 
-    componentWillMount() {
+    componentWillMount = () => {
         this.props.fetchBatches()
     }
     
-    handleClick(){
+    handleClick = () => {
         alert(this.props.batch.number)
     }
+
+     createBatch = (batch) => {
+         this.props.createBatch(batch)
+     }
 
 
     render() {
@@ -27,7 +30,8 @@ import '../styles/style.css'
             <p>BatchContainer</p>
     
                 <Link to={'/login'} component={LogInContainer}>Back</Link> 
-                <BatchForm />
+               
+                <BatchForm onSubmit={this.createBatch} />
                 
                 <div
                  style={{ display: "flex", flexDirection: 'column' }}> 
@@ -58,6 +62,6 @@ const mapStateToProps = function (state) {
     }
 }
 
-export default connect(mapStateToProps, { fetchBatches })(BatchContainer)
+export default connect(mapStateToProps, { fetchBatches, createBatch })(BatchContainer)
 
 // export default BatchContainer
