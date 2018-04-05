@@ -55,8 +55,8 @@ import StudentTile from '../components/StudentTile'
             if (!students[0].evaluations[0].grade) return null
             console.log(students[0].evaluations[0].grade)
 
-            const last =  students[0].evaluations.length-1
-            const grade = students[0].evaluations[last].grade
+            // const last =  students[0].evaluations.length-1
+            // const grade = students[0].evaluations[last].grade
 
             return (
                 <div className="StudentListContainer">
@@ -71,17 +71,12 @@ import StudentTile from '../components/StudentTile'
                     <br/>
         
                     <div className="list-group">
-                        {
-                            
-                            students.map( (student, index) => (
-
-                            <StudentTile key={index} name={student.name} id={student.id} evaluation={student.evaluations[
-                                    student.evaluations.length-1
-                            ]}
-                            /> 
-
-                        )
-                        )}
+                        {  students.map( 
+                            (student, index) => (
+                                <StudentTile key={index} name={student.name} id={student.id} evaluation={student.evaluations[ student.evaluations.length-1 ]}
+                                /> 
+                            )
+                        ) }
                     </div>
                     
                 </div>

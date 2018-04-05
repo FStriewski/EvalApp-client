@@ -19,6 +19,11 @@ class EvalContainer extends PureComponent {
         // if (this.props.batches === []) this.props.fetchBatches()
     }
 
+    createEvaluation = (evaluation) => {
+        console.log(evaluation)
+        this.props.createEvaluation(evaluation)
+    }
+
 
     render() {
         const { student } = this.props
@@ -45,7 +50,7 @@ class EvalContainer extends PureComponent {
                         )}
                     </div>
                 
-                    <EvalForm />
+                    <EvalForm onSubmit={this.createEvaluation} />
                 </div>
             )
         }

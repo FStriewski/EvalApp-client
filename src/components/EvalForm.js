@@ -21,20 +21,23 @@ export default class EvalForm extends PureComponent {
 
     render() {
         return (
-            <form id="EvalForm">
+            <form id="EvalForm" onSubmit={this.handleSubmit}>
 
                     <div className="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" id="greenButton" className="btn btn-success">Yay!!</button>
-                    <button type="button" id="yellowButton" className="btn btn-warning">Nah..</button>
-                    <button type="button" id="redButton" className="btn btn-danger">Sucks</button>
+
+                    <button type="button" id="greenButton" className="btn btn-success" name="grade" value="green" onClick={this.handleChange} >Yay!!</button>
+
+                    <button type="button" id="yellowButton" className="btn btn-warning" name="grade" value="yellow"  onClick={this.handleChange} >Nah..</button>
+
+                    <button type="button" id="redButton" className="btn btn-danger" name="grade" value="red"  onClick={this.handleChange}>Sucks</button>
                     </div>
                 
                 <br/>
                 <div className="form-group">
-                    <label htmlFor="evaldate"></label>
-                    <input type="date" className="form-control mb-2 mr-sm-2" name="evaldate" id="evaldate" value={
+                    <label htmlFor="date"></label>
+                    <input type="date" className="form-control mb-2 mr-sm-2" name="date" id="date" value={
                         this.state.date || ''
-                    } onChange={this.handleChange} placeholder="Enter End Date" />
+                    } onChange={this.handleChange} placeholder="Enter Date" />
                 </div>
 
                 <div className="form-group">
@@ -45,6 +48,8 @@ export default class EvalForm extends PureComponent {
                 </div>
                 <br />
                 <button type="submit" className="btn btn-secondary mb-2 ">Save</button>
+                
+                <br/>
                 <button type="submit" className="btn btn-secondary mb-2 ">Next</button>
             </form>
         )
