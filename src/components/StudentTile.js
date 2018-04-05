@@ -1,29 +1,34 @@
-// import React, { PureComponent } from 'react'
-// import PropTypes from 'prop-types'
-// import { connect } from 'react-redux'
-// import '../styles/style.css'
+import React, { PureComponent } from 'react'
+import '../styles/style.css'
 
-//  class StudentTile extends PureComponent {
+export default class StudentTile extends PureComponent {
 
-//     render() {
-//         const { batch } = this.props
+    // classNames() {
+    //     const { color } = this.props
+    //     let classnames = ['ScoreTile']
+    //     classnames.push(`fill-${color}`)
+    //     return classnames.join(' ')
+    // }
 
-//         return (
-//             <div className="StudentTile">
+    render() {
+        return (
+            // <div className={this.classNames()} >
+            //     {this.props.grades}
 
-//             </div>
-//         )
-//     }
-// }
+                <a href={"../students/" + this.props.id + "/evaluation"} className=" w-25 p-3 list-group-item list-group-item-action flex-row align-items-start">
 
-// // const mapStateToProps = (state, props) => ({
+                    <div className=" d-flex flex-wrap w-100 justify-content-between">
+                        {/* <div className={this.classNames()} > */}
+                        <div>
+                            <h5 className="mb-1">{this.props.name}</h5>
+                            <p>{JSON.stringify(this.props.evaluation)}</p>
+                        </div>
+                    </div>
 
-// //     student: state.users
-// // })
-
-//  const mapStateToProps = ({batches}) => ({batch: batches.filter(batch => batch.id === 1)})
- 
-// export default connect(mapStateToProps, {})(StudentTile)
+                </a>    
 
 
-// 
+            // </div>
+        )
+    }
+}
