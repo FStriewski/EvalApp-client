@@ -20,7 +20,6 @@ export default class LogInForm extends PureComponent {
 
     render() {
         return (
-            // <div class="row justify-content-center" id="LogInForm-container">
                 <form id="LogInForm" onSubmit={this.handleSubmit}>
                         
                         <div class="form-group">
@@ -36,7 +35,6 @@ export default class LogInForm extends PureComponent {
                         <button type="submit" class="btn btn-primary">Login</button>
 
                     </form>
-                // </div>
         )
     }
 }

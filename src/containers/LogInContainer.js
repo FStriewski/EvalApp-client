@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { login } from '../actions/logins'
+import { Redirect } from 'react-router-dom'
 import LogInForm from '../components/LogInForm'
 import '../styles/style.css'
 
@@ -11,10 +12,16 @@ class LogInContainer extends PureComponent {
     }
 
     render() {
+        if (this.props.login) return (
+            <Redirect to="/batches" />
+        )
+
+
         return (
             <div className="LogInContainer">
-                
+                           <div className="row justify-content-center" id="LogInForm-container">
                 <LogInForm onSubmit={this.handleSubmit}/>
+                </div>
             </div>
         )
     }
@@ -22,7 +29,7 @@ class LogInContainer extends PureComponent {
 
 const mapStateToProps = function (state) {
     return {
-        currentUser: state.currentUser
+        login: state.login
 
     }
 }
