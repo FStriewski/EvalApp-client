@@ -20,8 +20,7 @@ class EvalContainer extends PureComponent {
     }
 
     createEvaluation = (evaluation) => {
-        console.log(evaluation)
-        this.props.createEvaluation(evaluation)
+        this.props.createEvaluation(this.props.student.id, evaluation)
     }
 
 
@@ -39,12 +38,12 @@ class EvalContainer extends PureComponent {
                 <div className="EvalContainer">
                     EvalContainer
                 <h3>{student.name}</h3>
+               
+                <h5>(Batch {student.batch.id})</h5>
 
-                <p>Batchname</p>
-
+                    <h6>Progress so far:</h6>
                     <div className="ScoreTiles" style={{ display: "flex", flexDirection: 'row' }}>
                         {student.evaluations.map((student, index) =>
-                    //    <p> {student.grade} </p>
 
                             <ScoreTile key={index} color={student.grade} /> 
                         )}
