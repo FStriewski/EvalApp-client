@@ -22,7 +22,7 @@ class App extends Component {
           <Route exact path="/evaluation" component={EvalContainer} />
           
           <Route exact path="/batches/:id" component={StudentListContainer} />
-          <Route exact path="/students/:id/evaluation" component={EvalContainer} />
+          <Route exact path="/batches/students/:id/evaluation" component={EvalContainer} />
         </div>
       </Router>
     );

@@ -52,8 +52,8 @@ import StudentTile from '../components/StudentTile'
         console.log(students)
       
         if(students){
-            if (!students[0].evaluations[0].grade) return null
-            console.log(students[0].evaluations[0].grade)
+            // if (!students[0].evaluations[0].grade) return null
+            // console.log(students[0].evaluations[0].grade)
 
             // const last =  students[0].evaluations.length-1
             // const grade = students[0].evaluations[last].grade
@@ -62,6 +62,8 @@ import StudentTile from '../components/StudentTile'
                 <div className="StudentListContainer">
                 
                     <p>StudentListContainer</p>
+                    <p>{new Date().toJSON().slice(0,10)}</p>
+
                     <StudentForm onSubmit={this.createStudent}/>  
 
                     <div class="row justify-content-center" >
