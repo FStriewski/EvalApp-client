@@ -4,7 +4,7 @@ import { CREATE_EVALUATION } from './types'
 
 const baseUrl = 'http://localhost:4444'
 
-export const createStudent = (studentId, evaluation) => (dispatch) => {
+export const createEvaluation = (studentId, evaluation) => (dispatch) => {
     console.log(studentId, evaluation)
     request
         .post(`${baseUrl}/students/${studentId}/evaluation`)

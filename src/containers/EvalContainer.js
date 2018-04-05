@@ -8,7 +8,7 @@ import StudentListContainer from './StudentListContainer';
 import ScoreTile from '../components/ScoreTile'
 
 import { fetchOneStudent } from '../actions/students'
-import { fetchBatches, createBatch } from '../actions/batches'
+import { createEvaluation } from '../actions/evaluations'
 
 import '../styles/style.css'
 
@@ -60,8 +60,8 @@ class EvalContainer extends PureComponent {
 const mapStateToProps = (state) => {
     return {
         student: state.students,
-        batches: state.batches
+        // batches: state.batches
     }
 }
 
-export default connect(mapStateToProps, { fetchOneStudent, fetchBatches })(EvalContainer)
+export default connect(mapStateToProps, { fetchOneStudent, createEvaluation })(EvalContainer)
