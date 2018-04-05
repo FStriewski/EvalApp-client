@@ -4,11 +4,15 @@ import '../styles/style.css'
 
 export default class LogInContainer extends PureComponent {
 
+    login = (details) => {
+        this.props.login(details)
+    }
+
     render() {
         return (
             <div className="LogInContainer">
                 
-                <LogInForm/>
+                <LogInForm onSubmit={this.login}/>
             </div>
         )
     }

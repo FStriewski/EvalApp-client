@@ -3,11 +3,25 @@ import '../styles/style.css'
 
 export default class LogInForm extends PureComponent {
 
+    state = {}
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        this.props.onSubmit(this.state)
+    }
+
+    handleChange = (event) => {
+        const { name, value } = event.target
+
+        this.setState(
+            { [name]: value }
+        )
+    }
 
     render() {
         return (
             <div class="row justify-content-center" id="LogInForm-container">
-                    <form id="LogInForm">
+                <form id="LogInForm" onSubmit={this.handleSubmit}>
                         <div class="form-group">
                             <label htmlFor="email">Email</label>
                             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email"/>
