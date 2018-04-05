@@ -50,7 +50,7 @@ export default class EvalForm extends PureComponent {
                 <button type="submit" className="btn btn-secondary mb-2 ">Save</button>
                 
                 <br/>
-                <button type="submit" className="btn btn-secondary mb-2 ">Next</button>
+                <button type="" className="btn btn-secondary mb-2 " disabled>Next</button>
             </form>
         )
     }

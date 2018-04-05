@@ -57,7 +57,7 @@ import StudentTile from '../components/StudentTile'
 
             // const last =  students[0].evaluations.length-1
             // const grade = students[0].evaluations[last].grade
-
+           
             return (
                 <div className="StudentListContainer">
                 
@@ -70,7 +70,7 @@ import StudentTile from '../components/StudentTile'
                     </div>
                     <br/>
         
-                    <div className="list-group">
+                    <div className="list-group" >
                         {  students.map( 
                             (student, index) => (
                                 <StudentTile key={index} name={student.name} id={student.id} evaluation={student.evaluations[ student.evaluations.length-1 ]}
@@ -88,6 +88,7 @@ import StudentTile from '../components/StudentTile'
 const mapStateToProps = (state) => {
     return {
         batches:  state.batches,
+        
     }
 }
 

@@ -97,6 +97,7 @@
 
   .ScoreTile.fill-red {
       background-color: #D0021B;
+    
   }
 
   .ScoreTile.fill-green {
@@ -106,3 +107,18 @@
   .ScoreTile.fill-yellow {
       background-color: yellow;
   }
+
+    .StudentTile.fill-red {
+        background-color: #D0021B;
+          z-index: 100;
+    }
+
+    .StudentTile.fill-green {
+        background-color: green;
+          z-index: 100;
+    }
+
+    .StudentTileTile.fill-yellow {
+        background-color: yellow;
+          z-index: 100;
+    }
