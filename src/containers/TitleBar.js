@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react'
+
 import '../styles/style.css'
 
 export default class TitleBar extends PureComponent {
+
 
     render() {
         return (
@@ -10,6 +12,8 @@ export default class TitleBar extends PureComponent {
                     <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" className="d-inline-block align-top" alt=""/>
                             Student Evaluations
                      </a>
+                <a href="/logout"> Logout</a>
+                {/* <LogOutButton className="btn btn-warning" onClick={this.logout} /> */}
             </nav>
             
         )
