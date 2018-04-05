@@ -41,7 +41,7 @@ import StudentTile from '../components/StudentTile'
         // Array of students with an evaluation, latest first
          let withEval = students
                         .filter(x => x.evaluations.length > 0)
-                       // .map(x => x.evaluations.date.sort().reverse() )
+
 
         // let sorter = (arr) => {
         //     let sortedArray = arr.sort( (a,b) => b.date - a.date   ) //.sort().reverse()
@@ -66,7 +66,7 @@ import StudentTile from '../components/StudentTile'
          let greenGroup = withEval
              .filter(x => x.evaluations[x.evaluations.length - 1].grade === "red" && x.evaluations[0].date !== today)
 
-             let test = redGroup.map(x => x.name)
+             let test = greenGroup.map(x => x.id)
          let test2 = noEval.map(x => x.name)
     //    let array =  ["2018-03-01", "2018-01-01" ]
     //   console.log( array.sort().reverse )
@@ -77,8 +77,13 @@ import StudentTile from '../components/StudentTile'
          //console.log(y)
          console.log("withEval" + JSON.stringify(withEval) )
          console.log("dontEval" + JSON.stringify( dontEval.name) )
-         console.log("reds" + JSON.stringify(test))
+         console.log("greens" + JSON.stringify(test))
          console.log("noEval" + JSON.stringify(test2))
+
+         return {red: redGroup.length, 
+            yellow: yellowGroup.length, 
+            green: greenGroup.length,
+            blank: noEval.length}
      }
 
   
@@ -105,9 +110,9 @@ import StudentTile from '../components/StudentTile'
                     <StudentForm onSubmit={this.createStudent}/>  
 
                     <div class="row justify-content-center" >
-                        <StatusBar />
+                        <StatusBar action={this.action(students)}/>
 
-                        <button className="btn btn-danger " onClick={this.action(students)}>Get random</button>
+                        <button className="btn btn-secondary " onClick={this.action(students)}>Get random</button>
 
                     </div>
                     <br/>
@@ -116,7 +121,7 @@ import StudentTile from '../components/StudentTile'
                         {  students.map( 
                             (student, index) => {
 
-                                const lastEval = student.evaluations.sort().reverse()
+                                const lastEval = student.evaluations.sort() //.reverse()
 
                                 return <StudentTile key={index} name={student.name} id={student.id} evaluation={ lastEval[0] || "null" } 
                                 /> 
