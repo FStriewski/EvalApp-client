@@ -8,7 +8,7 @@ export const createEvaluation = (studentId, evaluation) => (dispatch) => {
     console.log(studentId)
     console.log(evaluation)
     request
-        .post(`${baseUrl}/evaluations/student/${studentId}`)
+        .post(`${baseUrl}/evaluation/student/${studentId}`)
         .send(evaluation)
         .then(response => dispatch({
             type: CREATE_EVALUATION,
