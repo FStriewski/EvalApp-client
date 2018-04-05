@@ -30,7 +30,7 @@ export default class StudentForm extends PureComponent {
 
                     <div className="form-group">
                         <label htmlFor="link"></label>
-                        <input className="form-control mb-2 mr-sm-2" name="link" id="link" value={
+                        <input type="url" className="form-control mb-2 mr-sm-2" name="link" id="link" value={
                             this.state.link || ''
                         } onChange={this.handleChange} placeholder="Link" />
                     </div>
