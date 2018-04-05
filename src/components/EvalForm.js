@@ -22,7 +22,6 @@ export default class EvalForm extends PureComponent {
     render() {
         return (
             <form id="EvalForm">
-            <p>Some date indication</p>
 
                     <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" id="greenButton" class="btn btn-success">Yay!!</button>
@@ -31,6 +30,13 @@ export default class EvalForm extends PureComponent {
                     </div>
                 
                 <br/>
+                <div className="form-group">
+                    <label htmlFor="evaldate"></label>
+                    <input type="date" className="form-control mb-2 mr-sm-2" name="evaldate" id="evaldate" value={
+                        this.state.date || ''
+                    } onChange={this.handleChange} placeholder="Enter End Date" />
+                </div>
+
                 <div className="form-group">
                     <label htmlFor="remarks"></label>
                     <input className="form-control mb-2 mr-sm-2" name="remarks" id="remarks" value={
