@@ -8,6 +8,7 @@ import StudentListContainer from './StudentListContainer';
 import ScoreTile from '../components/ScoreTile'
 
 import { fetchOneStudent } from '../actions/students'
+import { fetchBatches, createBatch } from '../actions/batches'
 
 import '../styles/style.css'
 
@@ -15,6 +16,7 @@ class EvalContainer extends PureComponent {
 
     componentWillMount(props) {
         this.props.fetchOneStudent(this.props.match.params.id)
+        // if (this.props.batches === []) this.props.fetchBatches()
     }
 
 
@@ -22,27 +24,25 @@ class EvalContainer extends PureComponent {
         const { student } = this.props
 
         console.log("Waiting...")
-        console.log(student)
         console.log(student.evaluations)
 
-        if (student) {
-        const scores = [1, 2, 3, 4]
-            console.log(student.evaluations)
+        if (!student.evaluations) return null
+        if (student.evaluations) {
+
+            console.log(student.evaluations[0])
             return (
                 <div className="EvalContainer">
                     EvalContainer
                 <h3>{student.name}</h3>
-                {/* <p>{student.evaluations[0].grade}</p> */}
+
                 <p>Batchname</p>
 
-
-                    <Link to={'/students'} component={StudentListContainer}>Back</Link> 
-
                     <div className="ScoreTiles" style={{ display: "flex", flexDirection: 'row' }}>
-                        {/* {student.evaluations.map((x, index) =>
-                       <p> {x.grade} </p>
-                            // <ScoreTile key={index} />
-                        )} */}
+                        {student.evaluations.map((student, index) =>
+                    //    <p> {student.grade} </p>
+
+                            <ScoreTile key={index} color={student.grade} /> 
+                        )}
                     </div>
                 
                     <EvalForm />
@@ -55,7 +55,8 @@ class EvalContainer extends PureComponent {
 const mapStateToProps = (state) => {
     return {
         student: state.students,
+        batches: state.batches
     }
 }
 
-export default connect(mapStateToProps, { fetchOneStudent })(EvalContainer)
+export default connect(mapStateToProps, { fetchOneStudent, fetchBatches })(EvalContainer)

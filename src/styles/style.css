@@ -85,12 +85,24 @@
 }
 
 .ScoreTile {
-    border: 1px dashed black;
+    border: 1px solid rgb(58, 57, 57);
     border-radius: 3px;
     font-family: monospace;
     font-size: 10px;
-    height: 10px;
-    width: 10px;
+    height: 30px;
+    width: 30px;
     margin: 1%;
     padding: 1%;
 }
+
+  .ScoreTile.fill-red {
+      background-color: #D0021B;
+  }
+
+  .ScoreTile.fill-green {
+      background-color: green;
+  }
+
+  .ScoreTile.fill-yellow {
+      background-color: yellow;
+  }
