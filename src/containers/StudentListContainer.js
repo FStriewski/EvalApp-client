@@ -72,17 +72,14 @@ import StudentTile from '../components/StudentTile'
                     </div>
                     <br/>
         
-                    <div className="list-group" >
+                        <div className="d-flex flex-wrap" >
                         {  students.map( 
                             (student, index) => (
                                 <StudentTile key={index} name={student.name} id={student.id} evaluation={student.evaluations[ student.evaluations.length-1 ] || "null" }
                                 /> 
                             )
-                        ) }
-                    
-                        
-                    </div>
-                    
+                        ) }               
+                        </div>
                 </div>
             )
         }
