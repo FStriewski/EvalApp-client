@@ -23,10 +23,10 @@ export default class EvalForm extends PureComponent {
         return (
             <form id="EvalForm">
 
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" id="greenButton" class="btn btn-success">Yay!!</button>
-                        <button type="button" id="yellowButton" class="btn btn-warning">Nah..</button>
-                        <button type="button" id="redButton" class="btn btn-danger">Sucks</button>
+                    <div className="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" id="greenButton" className="btn btn-success">Yay!!</button>
+                    <button type="button" id="yellowButton" className="btn btn-warning">Nah..</button>
+                    <button type="button" id="redButton" className="btn btn-danger">Sucks</button>
                     </div>
                 
                 <br/>
