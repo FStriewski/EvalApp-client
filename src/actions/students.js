@@ -29,7 +29,7 @@ export const fetchOneStudent = (studentId) => (dispatch) => {
 export const createStudent = (batchId, student) => (dispatch) => {
     console.log(batchId, student)
     request
-        .post(`${baseUrl}/batch/${batchId}/student`)
+        .post(`${baseUrl}/batch/${batchId}`)
         .send(student)
         .then(response => dispatch({
             type: CREATE_STUDENT,

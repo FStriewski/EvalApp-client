@@ -28,6 +28,10 @@ import StudentTile from '../components/StudentTile'
          this.props.fetchOneBatch(this.props.match.params.id)
      }
 
+     createStudent = (student) => {
+         this.props.createStudent(this.props.batches.id,student)
+     }
+
   
     render() {
         const {batches} = this.props
@@ -51,7 +55,7 @@ import StudentTile from '../components/StudentTile'
                 <div className="StudentListContainer">
                 
                     <p>StudentListContainer</p>
-                    <StudentForm/>  
+                    <StudentForm onSubmit={this.createStudent}/>  
 
                     <div class="row justify-content-center" >
                         <StatusBar />
