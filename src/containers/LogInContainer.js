@@ -16,11 +16,13 @@ class LogInContainer extends PureComponent {
             <Redirect to="/batches" />
         )
 
-
+        // if (this.props.login.hasOwnProperty('jwt') ) return (
+        //     <Redirect to="/batches" />
+        // )
         return (
             <div className="LogInContainer">
-                           <div className="row justify-content-center" id="LogInForm-container">
-                <LogInForm onSubmit={this.handleSubmit}/>
+                <div className="row justify-content-center" id="LogInForm-container">
+                    <LogInForm onSubmit={this.handleSubmit}/>
                 </div>
             </div>
         )

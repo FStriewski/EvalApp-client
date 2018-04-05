@@ -16,8 +16,7 @@ console.log(email, password)
             })
         })
     }
-
-
+    
 export const logout = () => ({
-    type: LOGOUT
+        type: LOGOUT
 })

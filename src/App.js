@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import TitleBar from './containers/TitleBar';
 import LogInContainer from './containers/LogInContainer';
 import BatchList from './components/BatchList';
+import LogOutButton from './components/LogOutButton';
 import StudentListContainer from './containers/StudentListContainer';
 import EvalContainer from './containers/EvalContainer';
 
@@ -15,14 +16,19 @@ class App extends Component {
         <div className="App">
           <TitleBar />
 
-          <Route exact path="/" render={() => <Redirect to="/login" />} />
+          {/* <Route exact path="/" render={() => <Redirect to="/login" />} /> */}
+
           <Route exact path="/login" component={LogInContainer} />
+          
           <Route exact path="/batches" component={BatchList} />
           <Route exact path="/students" component={StudentListContainer} />
           <Route exact path="/evaluation" component={EvalContainer} />
           
           <Route exact path="/batches/:id" component={StudentListContainer} />
           <Route exact path="/batches/students/:id/evaluation" component={EvalContainer} />
+
+          <Route exact path="/logout" component={LogOutButton} />
+
           <Route exact path="/students/:id/evaluation" component={EvalContainer} />
         </div>
       </Router>
