@@ -46,9 +46,9 @@ import StudentTile from '../components/StudentTile'
 
         const students=batches.students
        
-        console.log(1)
+        console.log(1 +" - Batch")
         console.log(batches)
-        console.log(2)  
+        console.log(2 +" - Students")  
         console.log(students)
       
         if(students){
@@ -73,10 +73,12 @@ import StudentTile from '../components/StudentTile'
                     <div className="list-group" >
                         {  students.map( 
                             (student, index) => (
-                                <StudentTile key={index} name={student.name} id={student.id} evaluation={student.evaluations[ student.evaluations.length-1 ]}
+                                <StudentTile key={index} name={student.name} id={student.id} evaluation={student.evaluations[ student.evaluations.length-1 ] || "null" }
                                 /> 
                             )
                         ) }
+                    
+                        
                     </div>
                     
                 </div>
@@ -87,7 +89,7 @@ import StudentTile from '../components/StudentTile'
 
 const mapStateToProps = (state) => {
     return {
-        batches:  state.batches,
+        batches:  state.batches
         
     }
 }

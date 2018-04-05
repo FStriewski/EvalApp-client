@@ -45,9 +45,10 @@ import '../styles/style.css'
 
                                 <a href={"batches/" + batch.id} className="list-group-item list-group-item-action flex-column align-items-start">
                                     <div className="d-flex w-100 justify-content-between">
-                                        <h5 className="mb-1">Batch {batch.id}</h5>
+                                        <h5 className="mb-1">Batch {batch.number}</h5>
                                     </div>
                                     <p className="mb-1">Start: {batch.startdate}  --- End: {batch.enddate}</p>
+                                    <p>DB: {batch.id} </p>
                                 </a>
 
                         ))}
