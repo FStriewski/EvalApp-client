@@ -32,6 +32,17 @@ import StudentTile from '../components/StudentTile'
          this.props.createStudent(this.props.batches.id,student)
      }
 
+     action = (x) => {
+         new Date().toJSON().slice(0, 10)
+
+         let withEval = x.filter(i => i.evaluations.length > 1)
+         
+         let y = x[0].evaluations[x[0].evaluations.length - 1].date
+      
+         //console.log(y)
+         console.log("withEval" + withEval)
+     }
+
   
     render() {
         const {batches} = this.props
@@ -45,19 +56,8 @@ import StudentTile from '../components/StudentTile'
             }
 
         const students=batches.students
-       
-        console.log(1 +" - Batch")
-        console.log(batches)
-        console.log(2 +" - Students")  
-        console.log(students)
       
         if(students){
-            // if (!students[0].evaluations[0].grade) return null
-            // console.log(students[0].evaluations[0].grade)
-
-            // const last =  students[0].evaluations.length-1
-            // const grade = students[0].evaluations[last].grade
-           
             return (
                 <div className="StudentListContainer">
                 
@@ -68,7 +68,9 @@ import StudentTile from '../components/StudentTile'
 
                     <div class="row justify-content-center" >
                         <StatusBar />
-                        <button className="btn btn-danger ">Get random</button>
+
+                        <button className="btn btn-danger " onClick={this.action(students)}>Get random</button>
+
                     </div>
                     <br/>
         
