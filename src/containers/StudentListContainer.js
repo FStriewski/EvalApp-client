@@ -36,16 +36,16 @@ import StudentTile from '../components/StudentTile'
         
         // Gives todays date
         const today =  new Date().toJSON().slice(0, 10)
-        const adate = "2018-04-07"
+        const adate = "2018-04-05"
 
         // Array of students with an evaluation, latest first
          let withEval = students
-                        .filter(x => x.evaluations.length > 1)
+                        .filter(x => x.evaluations.length > 0)
                         .sort().reverse()
 
 
         let dontEval = withEval
-                        .filter(x => x.evaluations[0] === adate )
+            .filter(x => x.evaluations[0].date === adate )
          
     //    let array =  ["2018-03-01", "2018-01-01" ]
     //   console.log( array.sort().reverse )
@@ -55,7 +55,7 @@ import StudentTile from '../components/StudentTile'
       
          //console.log(y)
          console.log("withEval" + JSON.stringify(withEval) )
-         console.log("dontEval" + JSON.stringify(dontEval) )
+         console.log("dontEval" + JSON.stringify( dontEval[0].name) )
      }
 
   
