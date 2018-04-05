@@ -28,6 +28,10 @@ import StudentTile from '../components/StudentTile'
          this.props.fetchOneBatch(this.props.match.params.id)
      }
 
+     createStudent = (student) => {
+         this.props.createStudent(this.props.batches.id,student)
+     }
+
   
     render() {
         const {batches} = this.props
@@ -40,18 +44,27 @@ import StudentTile from '../components/StudentTile'
                 return null
             }
 
-        let students=batches.students
+        const students=batches.students
        
-        console.log(1)
+        console.log(1 +" - Batch")
         console.log(batches)
-        console.log(2)  
+        console.log(2 +" - Students")  
         console.log(students)
+      
         if(students){
+            // if (!students[0].evaluations[0].grade) return null
+            // console.log(students[0].evaluations[0].grade)
+
+            // const last =  students[0].evaluations.length-1
+            // const grade = students[0].evaluations[last].grade
+           
             return (
                 <div className="StudentListContainer">
                 
                     <p>StudentListContainer</p>
-                    <StudentForm/>  
+                    <p>{new Date().toJSON().slice(0,10)}</p>
+
+                    <StudentForm onSubmit={this.createStudent}/>  
 
                     <div class="row justify-content-center" >
                         <StatusBar />
@@ -59,14 +72,15 @@ import StudentTile from '../components/StudentTile'
                     </div>
                     <br/>
         
-                    <div className="list-group">
-                        {students.map( (student, index) => (
-                            <a href={"../students/"+ student.id + "/evaluation" } className=" w-25 p-3 list-group-item list-group-item-action flex-row align-items-start">
-                                <div className=" d-flex flex-wrap w-100 justify-content-between">
-                                    <h5 className="mb-1">{student.name}</h5>
-                                </div>
-                            </a>
-                        ))}
+                    <div className="list-group" >
+                        {  students.map( 
+                            (student, index) => (
+                                <StudentTile key={index} name={student.name} id={student.id} evaluation={student.evaluations[ student.evaluations.length-1 ] || "null" }
+                                /> 
+                            )
+                        ) }
+                    
+                        
                     </div>
                     
                 </div>
@@ -77,7 +91,8 @@ import StudentTile from '../components/StudentTile'
 
 const mapStateToProps = (state) => {
     return {
-        batches:  state.batches,
+        batches:  state.batches
+        
     }
 }
 

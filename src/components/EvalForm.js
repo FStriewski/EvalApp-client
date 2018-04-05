@@ -21,31 +21,36 @@ export default class EvalForm extends PureComponent {
 
     render() {
         return (
-            <form id="EvalForm">
+            <form id="EvalForm" onSubmit={this.handleSubmit}>
 
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" id="greenButton" class="btn btn-success">Yay!!</button>
-                        <button type="button" id="yellowButton" class="btn btn-warning">Nah..</button>
-                        <button type="button" id="redButton" class="btn btn-danger">Sucks</button>
+                    <div className="btn-group" role="group" aria-label="Basic example">
+
+                    <button type="button" id="greenButton" className="btn btn-success" name="grade" value="green" onClick={this.handleChange} >Yay!!</button>
+
+                    <button type="button" id="yellowButton" className="btn btn-warning" name="grade" value="yellow"  onClick={this.handleChange} >Nah..</button>
+
+                    <button type="button" id="redButton" className="btn btn-danger" name="grade" value="red"  onClick={this.handleChange}>Sucks</button>
                     </div>
                 
                 <br/>
                 <div className="form-group">
-                    <label htmlFor="evaldate"></label>
-                    <input type="date" className="form-control mb-2 mr-sm-2" name="evaldate" id="evaldate" value={
+                    <label htmlFor="date"></label>
+                    <input type="date" className="form-control mb-2 mr-sm-2" name="date" id="date" value={
                         this.state.date || ''
-                    } onChange={this.handleChange} placeholder="Enter End Date" />
+                    } onChange={this.handleChange} placeholder="Enter Date" />
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="remarks"></label>
-                    <input className="form-control mb-2 mr-sm-2" name="remarks" id="remarks" value={
+                    <input type="text" className="form-control mb-2 mr-sm-2" name="remarks" id="remarks" value={
                         this.state.remarks || ''
                     } onChange={this.handleChange} placeholder="Remarks" />
                 </div>
                 <br />
                 <button type="submit" className="btn btn-secondary mb-2 ">Save</button>
-                <button type="submit" className="btn btn-secondary mb-2 ">Next</button>
+                
+                <br/>
+                <button type="" className="btn btn-secondary mb-2 " disabled>Next</button>
             </form>
         )
     }

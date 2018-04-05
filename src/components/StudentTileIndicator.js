@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import '../styles/style.css'
 
-export default class ScoreTile extends PureComponent {
+export default class StudentTileIndicator extends PureComponent {
 
     classNames() {
         const { color } = this.props
