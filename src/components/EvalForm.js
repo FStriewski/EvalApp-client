@@ -41,9 +41,9 @@ export default class EvalForm extends PureComponent {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="remarks"></label>
-                    <input type="text" className="form-control mb-2 mr-sm-2" name="remarks" id="remarks" value={
-                        this.state.remarks || ''
+                    <label htmlFor="remark"></label>
+                    <input type="text" className="form-control mb-2 mr-sm-2" name="remark" id="remark" value={
+                        this.state.remark || ''
                     } onChange={this.handleChange} placeholder="Remarks" />
                 </div>
                 <br />
