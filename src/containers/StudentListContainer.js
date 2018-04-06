@@ -134,16 +134,19 @@ import StudentTile from '../components/StudentTile'
         if(students){
             return (
                 <div className="StudentListContainer">
+                    <h3>Batch # {this.props.batches.id}</h3>
+
+                    <div className="row justify-content-center"> <StudentForm onSubmit={this.createStudent} /></div>
                 
                     <div id="StatusBars" className="row justify-content-center" >
 
-                        <StatusBar done={evaluatedToday} count={students.length} title={"Evaluated Today:"} />
+                        <StatusBar done={evaluatedToday} count={students.length} title={"Evaluated Today"} />
 
-                        <StatusBar done={sorted} count={students.length} title={"Class Summary:"}/>
+                        <StatusBar done={sorted} count={students.length} title={"Class Summary"}/>
 
                     </div>
 
-                    <StudentForm onSubmit={this.createStudent} />  
+                    {/* <StudentForm onSubmit={this.createStudent} />   */}
                     
                     {/* <button className="btn btn-secondary " onClick={this.handleAction}>Get random</button> */}
 
