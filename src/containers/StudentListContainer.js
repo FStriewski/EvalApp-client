@@ -61,32 +61,27 @@ import StudentTile from '../components/StudentTile'
                         .filter(student => student.evaluations.length > 0)
                         .map(
                            (student, index) => {
-                                console.log("--has an eval" + student.name)
-
                                student.evaluations = student.evaluations.sort((a, b) => new Date(b.date) - new Date(a.date))
                                return student
-                                
                             }
                            )
+        // Students that have been evaluated today                   
         const evaluatedToday = sorted.filter(
                         student => student.evaluations[0].date === today
         )
 
+        // Students that have NOT been evaluated today but have an eval already
         const notEvaluated = sorted.filter(
             student => student.evaluations[0].date !== today
         )
 
+        // Students that have NEVER been evaluated today 
         const neverEvaluatedIDs = students
                                 .filter( student => student.evaluations.length === 0 )
                                 .map(student => student.id)
 
-        // don't have an EvalArray -- array of ids
-        // const neverEvaluatedIDs = neverEvaluated.map(student =>
-        //     student.id
-        // )
-        // console.log( JSON.stringify( neverEvaluatedIDs )  )
-        // console.log( neverEvaluatedIDs[0])
 
+        // Extract student ids based on their latest grade                       
         const histogram = (notEvaluated, neverEvaluatedIDs) => {
 
             const histogram = {
@@ -113,6 +108,7 @@ import StudentTile from '../components/StudentTile'
             return histogram
         }
 
+    // Pick a random student based on the weights    
     const pickStudent = (histogram) => {
 
         const { red, yellow, green } = histogram
@@ -120,19 +116,23 @@ import StudentTile from '../components/StudentTile'
         let randomNumber = Math.floor(Math.random()*100)
 
         if (randomNumber <= 53) {
-            return red
+            console.log("The lucky student's ID (red) is " + red[Math.floor(Math.random() * red.length)] )
+            return red[Math.floor(Math.random() * red.length)]
         } 
         else if (randomNumber >= 81) {
-            return green
+            console.log("The lucky student's ID (green) is " + green[Math.floor(Math.random() * green.length)])
+            return green[Math.floor(Math.random() * green.length)]
         } 
         else {
-             return yellow
+            console.log("The lucky student's ID (yellow) is " + yellow[Math.floor(Math.random() * yellow.length)])
+            return yellow[Math.floor(Math.random() * yellow.length)]
         }
 
     }
 
-        console.log("Output:"+ JSON.stringify(histogram(notEvaluated, neverEvaluatedIDs))  )
 
+        // Print the Algorithm Result for now
+        console.log(pickStudent(histogram(notEvaluated, neverEvaluatedIDs)))
         
         if(students){
             return (
