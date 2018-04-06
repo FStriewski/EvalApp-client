@@ -96,7 +96,7 @@ import StudentTile from '../components/StudentTile'
                     <div class="row justify-content-center" >
                         {/* <StatusBar action={this.handleAction(students)} done={evaluatedToday} /> */}
 
-                        <StatusBar done={evaluatedToday} />
+                        <StatusBar done={evaluatedToday} count={students.length} />
 
                         <button className="btn btn-secondary " onClick={this.handleAction2(students)}>Get random</button>
 

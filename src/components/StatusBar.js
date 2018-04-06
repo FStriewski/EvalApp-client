@@ -12,9 +12,10 @@ export default class StatusBar extends PureComponent {
 
     render() {
 
-        const evaluatedToday = this.props
+        const evaluatedToday = this.props.done
+        const studentsInClass = this.props.count
 
-        const allGrades = evaluatedToday.done.map(student => 
+        const allGrades = evaluatedToday.map(student => 
             student.evaluations[0].grade
         )
 
@@ -30,14 +31,14 @@ export default class StatusBar extends PureComponent {
 
         return (
             <div className="StatusBar">
-
+                <h6> Evaluated today: </h6>
                 <div class="progress">
 
-                    <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={this.bar(allGrades.length, histogram.red)} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={this.bar(studentsInClass, histogram.red)} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 
-                    <div className="progress-bar progress-bar-striped bg-warning" role="progressbar" style={this.bar(allGrades.length, histogram.yellow)} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div className="progress-bar progress-bar-striped bg-warning" role="progressbar" style={this.bar(studentsInClass, histogram.yellow)} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 
-                    <div className="progress-bar progress-bar-striped bg-success" role="progressbar" style={this.bar(allGrades.length, histogram.green)}aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div className="progress-bar progress-bar-striped bg-success" role="progressbar" style={this.bar(studentsInClass, histogram.green)}aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 
 
                 </div>
