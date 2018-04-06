@@ -8,7 +8,7 @@ import StudentForm from '../components/StudentForm'
 import { fetchStudents, createStudent } from '../actions/students'
 import { fetchBatches } from '../actions/batches'
 import { fetchOneBatch } from '../actions/batches'
-import {action} from './logic'
+import { getGroups} from './logic'
 import '../styles/style.css'
 
 import StudentTile from '../components/StudentTile'
@@ -35,7 +35,11 @@ import StudentTile from '../components/StudentTile'
 
     
      handleAction = (students) => {
-         return action(students)
+         return getGroups(students)
+     }
+
+     handleAction2 = (students) => {
+         const groups = getGroups(students)
      }
 
   
@@ -64,7 +68,7 @@ import StudentTile from '../components/StudentTile'
                     <div class="row justify-content-center" >
                         <StatusBar action={this.handleAction(students)}/>
 
-                        <button className="btn btn-secondary " onClick={this.handleAction(students)}>Get random</button>
+                        <button className="btn btn-secondary " onClick={this.handleAction2(students)}>Get random</button>
 
                     </div>
                     <br/>

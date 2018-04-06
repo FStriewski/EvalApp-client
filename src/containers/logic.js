@@ -1,4 +1,4 @@
-export const action = (students) => {
+export const getGroups = (students) => {
 
     // Gives todays date
     const today = new Date().toJSON().slice(0, 10)
