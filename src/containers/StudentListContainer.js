@@ -78,6 +78,7 @@ import StudentTile from '../components/StudentTile'
                             (student, index) => {
 
                                 const lastEval = student.evaluations.sort((a, b) => new Date(b.date) - new Date(a.date)) //.reverse()
+                                const today = new Date().toJSON().slice(0, 10)
 
                                 return <StudentTile key={index} name={student.name} id={student.id} evaluation={ lastEval[0] || "null" } 
                                 /> 

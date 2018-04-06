@@ -12,30 +12,30 @@ export const getGroups = (students) => {
         return 0;
     }
 
-   let students2 = [
+//    let students2 = [
 
-        {id:1, evaluations:[
-            {id:1, date: "2018-04-05"},
-            { id: 11, date: "2017-04-05" },
-            ],
-       },
+//         {id:1, evaluations:[
+//             {id:1, date: "2018-04-05"},
+//             { id: 11, date: "2017-04-05" },
+//             ],
+//        },
 
-        {
-           id: 2, evaluations: [
-               { id: 2, date: "2018-04-05" },
-               { id: 22, date: "2017-04-05" },
-            ]
-        }
-    ]
+//         {
+//            id: 2, evaluations: [
+//                { id: 2, date: "2018-04-05" },
+//                { id: 22, date: "2017-04-05" },
+//             ]
+//         }
+//     ]
 
     // Array of students with an evaluation, latest first
     let withEvalSorted = students
         .filter(x => x.evaluations.length > 0) 
-        .filter( x =>  console.log(   x.evaluations.sort( (a,b) => new Date(b.date) - new Date (a.date) )
+        .filter( x =>   x.evaluations.sort( (a,b) => new Date(b.date) - new Date (a.date) )
             //.filter(y => console.log(y.date === "2018-04-05"  )   )
             // .filter(y => y.date === "2018-04-05").length
             // > 0
-        ) 
+        
     )
 
 
@@ -56,7 +56,7 @@ export const getGroups = (students) => {
     // }
 
     let dontEval = withEvalSorted
-        .filter(x => x.evaluations[0].date === today)
+        .filter(x => new Date( x.evaluations[0].date ) === new Date(today) )
     // console.log("this" + sorted.date  )
     // return sorted.date === today 
 
@@ -81,8 +81,8 @@ export const getGroups = (students) => {
     // let y = x[0].evaluations[x[0].evaluations.length - 1].date
 
     //console.log(y)
-    console.log("withEval" + JSON.stringify(withEvalSorted))
-    // console.log("dontEval" + JSON.stringify(dontEval.name))
+   // console.log("withEval" + JSON.stringify(withEvalSorted))
+     console.log("dontEval" + JSON.stringify(dontEval.name))
     // console.log("greens" + JSON.stringify(test))
     // console.log("noEval" + JSON.stringify(test2))
 

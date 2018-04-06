@@ -14,6 +14,7 @@ export default class StudentTileIndicator extends PureComponent {
         return (
             <div className={this.classNames()} >
                 {this.props.grades}
+
             </div>
         )
     }
