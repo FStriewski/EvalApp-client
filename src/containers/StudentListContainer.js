@@ -38,20 +38,17 @@ import StudentTile from '../components/StudentTile'
 
     
      handleAction = (students) => {
-
          //return getGroups(students)
      }
 
   
     render() {
-
         // <Link to={'/login'} component={LogInContainer}>Back</Link> 
 
         const students = this.props.batches.students
        // const {batches} = this.props
        // const students=batches.students
        
-
         if (this.props.batches === undefined){
             console.log("not there")
             return 'Waiting...'}
@@ -60,7 +57,6 @@ import StudentTile from '../components/StudentTile'
                 console.log("is null")
                 return null
             }
-
 
         const today = new Date().toJSON().slice(0, 10)
         const sorted = students
@@ -82,11 +78,47 @@ import StudentTile from '../components/StudentTile'
             student => student.evaluations[0].date !== today
         )
 
-        const neverEvaluated = students.filter(
-            student => student.evaluations.length > 0
-        )
+        const neverEvaluatedIDs = students
+                                .filter( student => student.evaluations.length === 0 )
+                                .map(student => student.id)
+
+        // don't have an EvalArray -- array of ids
+        // const neverEvaluatedIDs = neverEvaluated.map(student =>
+        //     student.id
+        // )
+        console.log( JSON.stringify( neverEvaluatedIDs )  )
+
+        const histo = (notEvaluated, neverEvaluatedIDs) => {
+
+            const histogram = {
+                red: [],
+                yellow: [],
+                green: []
+            }
+
+            //allGrades.map(grade => histogram[grade] += 1)
+
+             notEvaluated.map( student => {
+                
+                const grade = student.evaluations[0].grade
+                const id = student.id
+
+                histogram[grade].push(id)
+
+                //return histogram
+                })
+
+            histogram["red"].concat(neverEvaluatedIDs)
+
+            return histogram
+        // console.log(JSON.stringify(notEvaluatedIDS)   )
+    }
+
+        console.log("Output:"+ JSON.stringify(histo(notEvaluated, neverEvaluatedIDs))  )
+
+
    
-        console.log("evaluated today" + JSON.stringify(notEvaluated))
+       // console.log("evaluated today" + JSON.stringify(notEvaluated))
 
     
         if(students){
@@ -105,10 +137,6 @@ import StudentTile from '../components/StudentTile'
                     </div>
                     
                     <button className="btn btn-secondary " onClick={this.handleAction}>Get random</button>
-
-                    {/* <button className="btn btn-secondary " onClick={() => history.push('/logout')} >Go </button> */}
-
-                    
 
                     <br/>
 
