@@ -86,7 +86,8 @@ import StudentTile from '../components/StudentTile'
         // const neverEvaluatedIDs = neverEvaluated.map(student =>
         //     student.id
         // )
-        console.log( JSON.stringify( neverEvaluatedIDs )  )
+        // console.log( JSON.stringify( neverEvaluatedIDs )  )
+        // console.log( neverEvaluatedIDs[0])
 
         const histo = (notEvaluated, neverEvaluatedIDs) => {
 
@@ -96,31 +97,27 @@ import StudentTile from '../components/StudentTile'
                 green: []
             }
 
-            //allGrades.map(grade => histogram[grade] += 1)
-
-             notEvaluated.map( student => {
+            // Put non-evaluated students into histogram
+            notEvaluated.map( student => {
                 
                 const grade = student.evaluations[0].grade
                 const id = student.id
 
                 histogram[grade].push(id)
 
-                //return histogram
-                })
+            })
 
-            histogram["red"].concat(neverEvaluatedIDs)
+             // Put never-evaluated students into histogram
+            if (neverEvaluatedIDs.length > 0) {  
+                histogram["red"] = histogram["red"].concat(neverEvaluatedIDs)
+            } 
 
             return histogram
-        // console.log(JSON.stringify(notEvaluatedIDS)   )
     }
 
         console.log("Output:"+ JSON.stringify(histo(notEvaluated, neverEvaluatedIDs))  )
 
-
-   
-       // console.log("evaluated today" + JSON.stringify(notEvaluated))
-
-    
+        
         if(students){
             return (
                 <div className="StudentListContainer">
