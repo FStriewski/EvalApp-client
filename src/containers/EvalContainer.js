@@ -1,10 +1,8 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-
 import EvalForm from '../components/EvalForm'
-import StudentListContainer from './StudentListContainer';
+
 import ScoreTile from '../components/ScoreTile'
 
 import { fetchOneStudent } from '../actions/students'

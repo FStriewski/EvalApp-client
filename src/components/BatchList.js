@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import LogInContainer from '../containers/LogInContainer';
-import StudentListContainer from '../containers/StudentListContainer';
 import BatchForm from './BatchForm'
 import { fetchBatches, createBatch } from '../actions/batches'
 import '../styles/style.css'

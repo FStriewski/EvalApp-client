@@ -1,11 +1,6 @@
 import React, { PureComponent } from 'react'
-import { Link } from 'react-router-dom'
+
 import { connect } from 'react-redux'
-
-
-
-import PropTypes from 'prop-types'
-import BatchList from '../components/BatchList';
 import StatusBar from '../components/StatusBar'
 import StudentForm from '../components/StudentForm'
 import { fetchStudents, createStudent } from '../actions/students'
