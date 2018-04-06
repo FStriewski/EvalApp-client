@@ -18,7 +18,7 @@ export default class StudentForm extends PureComponent {
 
     render() {
         return (
-            <div class="row justify-content-center" id="StudentForm-container">
+            <div className="row justify-content-center" id="StudentForm-container">
                 <form className="form-inline" id="StudentForm" onSubmit={this.handleSubmit}>
 
                     <div className="form-group">

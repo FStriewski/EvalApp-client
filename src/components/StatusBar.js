@@ -33,7 +33,7 @@ export default class StatusBar extends PureComponent {
         return (
             <div className="StatusBar">
                 <h6> {title} </h6>
-                <div class="progress">
+                <div className="progress">
 
                     <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={this.bar(studentsInClass, histogram.red)} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 

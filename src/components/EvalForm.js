@@ -19,6 +19,8 @@ export default class EvalForm extends PureComponent {
     }
 
 
+    //onclick="window.location.href='somewhere.php'"
+
     render() {
         return (
             <form id="EvalForm" onSubmit={this.handleSubmit}>

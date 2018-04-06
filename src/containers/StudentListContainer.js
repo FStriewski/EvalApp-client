@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+
+
+
 import PropTypes from 'prop-types'
 import BatchList from '../components/BatchList';
 import StatusBar from '../components/StatusBar'
@@ -35,16 +38,20 @@ import StudentTile from '../components/StudentTile'
 
     
      handleAction = (students) => {
-         return getGroups(students)
-     }
 
-     handleAction2 = (students) => {
-         const groups = getGroups(students)
+         //return getGroups(students)
      }
 
   
     render() {
-        const {batches} = this.props
+
+        // <Link to={'/login'} component={LogInContainer}>Back</Link> 
+
+        const students = this.props.batches.students
+       // const {batches} = this.props
+       // const students=batches.students
+       
+
         if (this.props.batches === undefined){
             console.log("not there")
             return 'Waiting...'}
@@ -54,7 +61,6 @@ import StudentTile from '../components/StudentTile'
                 return null
             }
 
-        const students=batches.students
 
         const today = new Date().toJSON().slice(0, 10)
         const sorted = students
@@ -71,19 +77,18 @@ import StudentTile from '../components/StudentTile'
         const evaluatedToday = sorted.filter(
                         student => student.evaluations[0].date === today
         )
+
+        const notEvaluated = sorted.filter(
+            student => student.evaluations[0].date !== today
+        )
+
+        const neverEvaluated = students.filter(
+            student => student.evaluations.length > 0
+        )
    
-        console.log("evaluated today" + JSON.stringify(evaluatedToday))
+        console.log("evaluated today" + JSON.stringify(notEvaluated))
 
-        //console.log("xxx" + JSON.stringify(todayEval  )  )           
-                            //     console.log("--last eval" + sortedEval[0].date)
-
-                            //    sortedEval[0].date !== today
-                // sorted Students
-                //const onlyToday = studentSortedEval.filter( student => student.evaluations[0] === new Date (today) )
-              //  console.log("-----today studs   " + student.name )
-
-
-      
+    
         if(students){
             return (
                 <div className="StudentListContainer">
@@ -91,16 +96,19 @@ import StudentTile from '../components/StudentTile'
                     <p>StudentListContainer</p>
                 
 
-                    <div id="StatusBars" class="row justify-content-center" >
-                        {/* <StatusBar action={this.handleAction(students)} done={evaluatedToday} /> */}
+                    <div id="StatusBars" className="row justify-content-center" >
 
-                        <StatusBar done={evaluatedToday} count={students.length} title={"Evaluated today"} />
+                        <StatusBar done={evaluatedToday} count={students.length} title={"Evaluated Today:"} />
 
-                        <StatusBar done={sorted} count={students.length} title={"Summary:"}/>
+                        <StatusBar done={sorted} count={students.length} title={"Class Summary:"}/>
 
                     </div>
                     
-                    <button className="btn btn-secondary " onClick={this.handleAction2(students)}>Get random</button>
+                    <button className="btn btn-secondary " onClick={this.handleAction}>Get random</button>
+
+                    {/* <button className="btn btn-secondary " onClick={() => history.push('/logout')} >Go </button> */}
+
+                    
 
                     <br/>
 
