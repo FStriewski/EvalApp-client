@@ -14,6 +14,7 @@ export default class StatusBar extends PureComponent {
 
         const evaluatedToday = this.props.done
         const studentsInClass = this.props.count
+        const title = this.props.title
 
         const allGrades = evaluatedToday.map(student => 
             student.evaluations[0].grade
@@ -31,7 +32,7 @@ export default class StatusBar extends PureComponent {
 
         return (
             <div className="StatusBar">
-                <h6> Evaluated today: </h6>
+                <h6> {title} </h6>
                 <div class="progress">
 
                     <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={this.bar(studentsInClass, histogram.red)} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>

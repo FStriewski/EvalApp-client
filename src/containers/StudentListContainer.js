@@ -89,18 +89,18 @@ import StudentTile from '../components/StudentTile'
                 <div className="StudentListContainer">
                 
                     <p>StudentListContainer</p>
-                    <p>{new Date().toJSON().slice(0,10)}</p>
-
-                    <StudentForm onSubmit={this.createStudent}/>  
+                
 
                     <div class="row justify-content-center" >
                         {/* <StatusBar action={this.handleAction(students)} done={evaluatedToday} /> */}
 
-                        <StatusBar done={evaluatedToday} count={students.length} />
+                        <StatusBar done={evaluatedToday} count={students.length} title={"Evaluated today"} />
 
-                        <button className="btn btn-secondary " onClick={this.handleAction2(students)}>Get random</button>
+                        <StatusBar done={sorted} count={students.length} title={"Latest Eval:"}/>
 
                     </div>
+                        <button className="btn btn-secondary " onClick={this.handleAction2(students)}>Get random</button>
+
                     <br/>
         
                         <div className="d-flex flex-wrap" >
@@ -115,6 +115,9 @@ import StudentTile from '../components/StudentTile'
                             }
                         ) }               
                         </div>
+
+
+                    <StudentForm onSubmit={this.createStudent} />   
                 </div>
             )
         }
