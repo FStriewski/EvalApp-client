@@ -109,22 +109,22 @@ import StudentTile from '../components/StudentTile'
         let randomNumber = Math.floor(Math.random()*100)
 
         if (randomNumber <= 53) {
-            console.log("The lucky student's ID (red) is " + red[Math.floor(Math.random() * red.length)] )
-            return red[Math.floor(Math.random() * red.length)]
+           // console.log("The lucky student's ID (red) is " + red[Math.floor(Math.random() * red.length)] )
+            return `The lucky student's ID (red) is ${red[Math.floor(Math.random() * red.length)]}`
         } 
         else if (randomNumber >= 81) {
-            console.log("The lucky student's ID (green) is " + green[Math.floor(Math.random() * green.length)])
-            return green[Math.floor(Math.random() * green.length)]
+           // console.log("The lucky student's ID (green) is " + green[Math.floor(Math.random() * green.length)])
+            return `The lucky student's ID (green) is  ${green[Math.floor(Math.random() * green.length)]} `
         } 
         else {
-            console.log("The lucky student's ID (yellow) is " + yellow[Math.floor(Math.random() * yellow.length)])
-            return yellow[Math.floor(Math.random() * yellow.length)]
+          //  console.log("The lucky student's ID (yellow) is " + yellow[Math.floor(Math.random() * yellow.length)])
+            return `The lucky student's ID (yellow) is  ${yellow[Math.floor(Math.random() * yellow.length)]}`
         }
 
     }
 
         // Print the Algorithm Result for now
-        console.log(pickStudent(histogram(notEvaluated, neverEvaluatedIDs)))
+        console.log(  pickStudent(histogram(notEvaluated, neverEvaluatedIDs))  )
         
         if(students){
             return (
@@ -141,11 +141,9 @@ import StudentTile from '../components/StudentTile'
 
                     </div>
 
-                    {/* <StudentForm onSubmit={this.createStudent} />   */}
-                    
-                    {/* <button className="btn btn-secondary " onClick={this.handleAction}>Get random</button> */}
+                    <h6>Algorithm Result</h6> 
+                    <p>{pickStudent(histogram(notEvaluated, neverEvaluatedIDs))}</p>
 
-     
                     <div id="StudentTiles" className="d-flex flex-wrap" >
                         {  students.map( 
                             (student, index) => {
