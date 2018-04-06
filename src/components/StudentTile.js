@@ -20,9 +20,9 @@ export default class StudentTile extends PureComponent {
 
             return (
 
-                    <a href={"../students/" + this.props.id + "/evaluation"} className=" w-25 p-3 list-group-item list-group-item-action flex-row align-items-start ">
+                    <a href={"../students/" + this.props.id + "/evaluation"} className=" w-25 p-10 list-group-item list-group-item-action flex-row align-items-start ">
 
-                        <div className=" d-flex flex-wrap w-100 justify-content-between" >
+                        <div className=" d-flex flex-wrap w-100 justify-content-center" >
                             
                             <div>  
                                 <h5 className="mb-1" sty>{this.props.name}</h5>
