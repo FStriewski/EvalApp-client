@@ -10,24 +10,34 @@ export default class StatusBar extends PureComponent {
     }
 
 
-
     render() {
 
-        const group = this.props
-        const reds = group.action.red + group.action.blank
-        const all =  group.action.yellow + group.action.green + reds
+        const evaluatedToday = this.props
 
+        const allGrades = evaluatedToday.done.map(student => 
+            student.evaluations[0].grade
+        )
+
+        const histogram = {
+            red: 0,
+            yellow: 0,
+            green: 0
+        }
+
+        allGrades.map( grade => histogram[grade] +=1  )
+
+        //console.log(JSON.stringify(histogram)   )
 
         return (
             <div className="StatusBar">
 
                 <div class="progress">
 
-                    <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={this.bar(all, reds)} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={this.bar(allGrades.length, histogram.red)} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 
-                    <div className="progress-bar progress-bar-striped bg-warning" role="progressbar" style={this.bar(all, group.action.yellow)} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div className="progress-bar progress-bar-striped bg-warning" role="progressbar" style={this.bar(allGrades.length, histogram.yellow)} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 
-                    <div className="progress-bar progress-bar-striped bg-success" role="progressbar" style={this.bar(all, group.action.green)}aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div className="progress-bar progress-bar-striped bg-success" role="progressbar" style={this.bar(allGrades.length, histogram.green)}aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 
 
                 </div>

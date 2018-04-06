@@ -65,17 +65,16 @@ import StudentTile from '../components/StudentTile'
 
                                student.evaluations = student.evaluations.sort((a, b) => new Date(b.date) - new Date(a.date))
                                return student
-                                //const firstSortedEval = sortedEval[0].filter(x => x.date === today )
+                                
                             }
                            )
-        const todayEval = sorted.filter(
+        const evaluatedToday = sorted.filter(
                         student => student.evaluations[0].date === today
         )
-                        // .filter(
-                        //     student => student.evaluations //.evaluations[0].date === today   
-                        // )
+   
+        console.log("evaluated today" + JSON.stringify(evaluatedToday))
 
-        console.log("xxx" + JSON.stringify(todayEval  )  )           
+        //console.log("xxx" + JSON.stringify(todayEval  )  )           
                             //     console.log("--last eval" + sortedEval[0].date)
 
                             //    sortedEval[0].date !== today
@@ -95,7 +94,9 @@ import StudentTile from '../components/StudentTile'
                     <StudentForm onSubmit={this.createStudent}/>  
 
                     <div class="row justify-content-center" >
-                        <StatusBar action={this.handleAction(students)}/>
+                        {/* <StatusBar action={this.handleAction(students)} done={evaluatedToday} /> */}
+
+                        <StatusBar done={evaluatedToday} />
 
                         <button className="btn btn-secondary " onClick={this.handleAction2(students)}>Get random</button>
 
