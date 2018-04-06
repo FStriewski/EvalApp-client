@@ -1,95 +1,61 @@
-export const getGroups = (students) => {
 
-    // Gives todays date
-    const today = new Date().toJSON().slice(0, 10)
-    const adate = "2018-04-05"
+// import students from './StudentListContainer'
 
-    let  sorter = (x, y) => {
-        if (x.date < y.date)
-            return -1;
-        if (x.date > y.date)
-            return 1;
-        return 0;
-    }
+// const today = new Date().toJSON().slice(0, 10)
+// const sorted = students
+//     .filter(student => student.evaluations.length > 0)
+//     .map(
+//         (student, index) => {
+//             console.log("--has an eval" + student.name)
 
-//    let students2 = [
+//             student.evaluations = student.evaluations.sort((a, b) => new Date(b.date) - new Date(a.date))
+//             return student
 
-//         {id:1, evaluations:[
-//             {id:1, date: "2018-04-05"},
-//             { id: 11, date: "2017-04-05" },
-//             ],
-//        },
-
-//         {
-//            id: 2, evaluations: [
-//                { id: 2, date: "2018-04-05" },
-//                { id: 22, date: "2017-04-05" },
-//             ]
 //         }
-//     ]
+//     )
+// const evaluatedToday = sorted.filter(
+//     student => student.evaluations[0].date === today
+// )
 
-    // Array of students with an evaluation, latest first
-    let withEvalSorted = students
-        .filter(x => x.evaluations.length > 0) 
-        .filter( x =>   x.evaluations.sort( (a,b) => new Date(b.date) - new Date (a.date) )
-            //.filter(y => console.log(y.date === "2018-04-05"  )   )
-            // .filter(y => y.date === "2018-04-05").length
-            // > 0
-        
-    )
+// const notEvaluated = sorted.filter(
+//     student => student.evaluations[0].date !== today
+// )
 
+// const neverEvaluatedIDs = students
+//     .filter(student => student.evaluations.length === 0)
+//     .map(student => student.id)
 
+// // don't have an EvalArray -- array of ids
+// // const neverEvaluatedIDs = neverEvaluated.map(student =>
+// //     student.id
+// // )
+// // console.log( JSON.stringify( neverEvaluatedIDs )  )
+// // console.log( neverEvaluatedIDs[0])
 
-       // .sort(x => x.evaluations.sort(sorter).reverse() )
-    
-    // {
-    //     students.map(
-    //         (student, index) => {
+// const histo = (notEvaluated, neverEvaluatedIDs) => {
 
-    //             const lastEval = student.evaluations.sort()
+//     const histogram = {
+//         red: [],
+//         yellow: [],
+//         green: []
+//     }
 
+//     // Put non-evaluated students into histogram
+//     notEvaluated.map(student => {
 
-    // let sorter = (arr) => {
-    //     let sortedArray = arr.sort( (a,b) => b.date - a.date   ) //.sort().reverse()
-    //     console.log(JSON.stringify(sortedArray))
-    //     return sortedArray
-    // }
+//         const grade = student.evaluations[0].grade
+//         const id = student.id
 
-    let dontEval = withEvalSorted
-        .filter(x => new Date( x.evaluations[0].date ) === new Date(today) )
-    // console.log("this" + sorted.date  )
-    // return sorted.date === today 
+//         histogram[grade].push(id)
 
-    let noEval = students.filter(x => x.evaluations.length === 0)
+//     })
 
-    let redGroup = withEvalSorted
-        .filter(x => x.evaluations[0].grade === "red"
-            && x.evaluations[0].date !== today)
+//     // Put never-evaluated students into histogram
+//     if (neverEvaluatedIDs.length > 0) {
+//         histogram["red"] = histogram["red"].concat(neverEvaluatedIDs)
+//     }
 
-    let yellowGroup = withEvalSorted
-        .filter(x => x.evaluations[0].grade === "yelow" && x.evaluations[0].date !== today)
+//     return histogram
+// }
 
-    let greenGroup = withEvalSorted
-        .filter(x => x.evaluations[0].grade === "green" && x.evaluations[0].date !== today)
-
-    let test = greenGroup.map(x => x.id)
-    let test2 = noEval.map(x => x.name)
-    //    let array =  ["2018-03-01", "2018-01-01" ]
-    //   console.log( array.sort().reverse )
-
-
-    // let y = x[0].evaluations[x[0].evaluations.length - 1].date
-
-    //console.log(y)
-   // console.log("withEval" + JSON.stringify(withEvalSorted))
-     console.log("dontEval" + JSON.stringify(dontEval.name))
-    // console.log("greens" + JSON.stringify(test))
-    // console.log("noEval" + JSON.stringify(test2))
-
-    return {
-        red: redGroup.length,
-        yellow: yellowGroup.length,
-        green: greenGroup.length,
-        blank: noEval.length
-    }
-}
+// console.log("Output:" + JSON.stringify(histo(notEvaluated, neverEvaluatedIDs)))

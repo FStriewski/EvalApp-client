@@ -11,7 +11,7 @@ import StudentForm from '../components/StudentForm'
 import { fetchStudents, createStudent } from '../actions/students'
 import { fetchBatches } from '../actions/batches'
 import { fetchOneBatch } from '../actions/batches'
-import { getGroups} from './logic'
+
 import '../styles/style.css'
 
 import StudentTile from '../components/StudentTile'
@@ -46,9 +46,7 @@ import StudentTile from '../components/StudentTile'
         // <Link to={'/login'} component={LogInContainer}>Back</Link> 
 
         const students = this.props.batches.students
-       // const {batches} = this.props
-       // const students=batches.students
-       
+
         if (this.props.batches === undefined){
             console.log("not there")
             return 'Waiting...'}
@@ -89,7 +87,7 @@ import StudentTile from '../components/StudentTile'
         // console.log( JSON.stringify( neverEvaluatedIDs )  )
         // console.log( neverEvaluatedIDs[0])
 
-        const histo = (notEvaluated, neverEvaluatedIDs) => {
+        const histogram = (notEvaluated, neverEvaluatedIDs) => {
 
             const histogram = {
                 red: [],
@@ -113,9 +111,27 @@ import StudentTile from '../components/StudentTile'
             } 
 
             return histogram
+        }
+
+    const pickStudent = (histogram) => {
+
+        const { red, yellow, green } = histogram
+
+        let randomNumber = Math.floor(Math.random()*100)
+
+        if (randomNumber <= 53) {
+            return red
+        } 
+        else if (randomNumber >= 81) {
+            return green
+        } 
+        else {
+             return yellow
+        }
+
     }
 
-        console.log("Output:"+ JSON.stringify(histo(notEvaluated, neverEvaluatedIDs))  )
+        console.log("Output:"+ JSON.stringify(histogram(notEvaluated, neverEvaluatedIDs))  )
 
         
         if(students){
@@ -143,7 +159,7 @@ import StudentTile from '../components/StudentTile'
                             (student, index) => {
 
                                 const lastEval = student.evaluations.sort((a, b) => new Date(b.date) - new Date(a.date)) //.reverse()
-                                const today = new Date().toJSON().slice(0, 10)
+                               // const today = new Date().toJSON().slice(0, 10)
 
                                 return <StudentTile key={index} name={student.name} id={student.id} evaluation={ lastEval[0] || "null" } 
                                 /> 
