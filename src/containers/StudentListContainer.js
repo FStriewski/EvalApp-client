@@ -55,6 +55,35 @@ import StudentTile from '../components/StudentTile'
             }
 
         const students=batches.students
+
+        const today = new Date().toJSON().slice(0, 10)
+        const sorted = students
+                        .filter(student => student.evaluations.length > 0)
+                        .map(
+                           (student, index) => {
+                                console.log("--has an eval" + student.name)
+
+                               student.evaluations = student.evaluations.sort((a, b) => new Date(b.date) - new Date(a.date))
+                               return student
+                                //const firstSortedEval = sortedEval[0].filter(x => x.date === today )
+                            }
+                           )
+        const todayEval = sorted.filter(
+                        student => student.evaluations[0].date === today
+        )
+                        // .filter(
+                        //     student => student.evaluations //.evaluations[0].date === today   
+                        // )
+
+        console.log("xxx" + JSON.stringify(todayEval  )  )           
+                            //     console.log("--last eval" + sortedEval[0].date)
+
+                            //    sortedEval[0].date !== today
+                // sorted Students
+                //const onlyToday = studentSortedEval.filter( student => student.evaluations[0] === new Date (today) )
+              //  console.log("-----today studs   " + student.name )
+
+
       
         if(students){
             return (
