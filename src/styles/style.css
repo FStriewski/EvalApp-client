@@ -18,10 +18,7 @@
 }
 
 .BatchContainer {
-    border: 1px dotted black;
-    border-radius: 3px;
     font-size: 10px;
-    height: 550px;
     margin: 2%;
 }
 

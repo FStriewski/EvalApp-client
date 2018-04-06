@@ -31,9 +31,6 @@ import '../styles/style.css'
         
         return (       
             <div className="BatchContainer">
-            <p>BatchList</p>
-    
-                {/* <Link to={'/login'} component={LogInContainer}>Back</Link>  */}
                
                 <BatchForm onSubmit={this.createBatch} />
                 

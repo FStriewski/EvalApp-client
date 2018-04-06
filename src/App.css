@@ -1,3 +1,33 @@
 .App {
 
 }
+
+
+/* unvisited link */
+
+a#logoutLink {
+    color: white;
+}
+
+a#batchesLink {
+    color: white;
+}
+
+
+/* visited link */
+
+/* a:visited {
+    color: white;
+}
+
+/* mouse over link */
+
+/* a:hover {
+    color: white;
+} */
+
+/* selected link */
+
+/* a:active {
+    color: grey;
+} */ 
