@@ -29,7 +29,7 @@ export const getGroups = (students) => {
     ]
 
     // Array of students with an evaluation, latest first
-    let withEval = students2
+    let withEvalSorted = students
         .filter(x => x.evaluations.length > 0) 
         .filter( x =>  console.log(   x.evaluations.sort( (a,b) => new Date(b.date) - new Date (a.date) )
             //.filter(y => console.log(y.date === "2018-04-05"  )   )
@@ -55,22 +55,22 @@ export const getGroups = (students) => {
     //     return sortedArray
     // }
 
-    let dontEval = withEval
+    let dontEval = withEvalSorted
         .filter(x => x.evaluations[0].date === today)
     // console.log("this" + sorted.date  )
     // return sorted.date === today 
 
     let noEval = students.filter(x => x.evaluations.length === 0)
 
-    let redGroup = withEval
-        .filter(x => x.evaluations[x.evaluations.length - 1].grade === "red"
-            && x.evaluations[x.evaluations.length - 1].date !== today)
+    let redGroup = withEvalSorted
+        .filter(x => x.evaluations[0].grade === "red"
+            && x.evaluations[0].date !== today)
 
-    let yellowGroup = withEval
-        .filter(x => x.evaluations[x.evaluations.length - 1].grade === "yelow" && x.evaluations[0].date !== today)
+    let yellowGroup = withEvalSorted
+        .filter(x => x.evaluations[0].grade === "yelow" && x.evaluations[0].date !== today)
 
-    let greenGroup = withEval
-        .filter(x => x.evaluations[x.evaluations.length - 1].grade === "green" && x.evaluations[0].date !== today)
+    let greenGroup = withEvalSorted
+        .filter(x => x.evaluations[0].grade === "green" && x.evaluations[0].date !== today)
 
     let test = greenGroup.map(x => x.id)
     let test2 = noEval.map(x => x.name)
@@ -81,7 +81,7 @@ export const getGroups = (students) => {
     // let y = x[0].evaluations[x[0].evaluations.length - 1].date
 
     //console.log(y)
-    console.log("withEval" + JSON.stringify(withEval))
+    console.log("withEval" + JSON.stringify(withEvalSorted))
     // console.log("dontEval" + JSON.stringify(dontEval.name))
     // console.log("greens" + JSON.stringify(test))
     // console.log("noEval" + JSON.stringify(test2))
