@@ -35,8 +35,8 @@ import '../styles/style.css'
                 <BatchForm onSubmit={this.createBatch} />
                 
                     <div className="list-group">
-                        {batches.map( (batch, index) =>( 
-
+                    {batches.sort( (a,b) => a.id -b.id    )
+                            .map( (batch, index) =>( 
                                 <a href={"batches/" + batch.id} className="list-group-item list-group-item-action flex-column align-items-start">
                                     <div className="d-flex w-100 justify-content-between">
                                         <h5 className="mb-1">Batch {batch.number}</h5>
@@ -44,8 +44,8 @@ import '../styles/style.css'
                                     <p className="mb-1">Start: {batch.startdate}  --- End: {batch.enddate}</p>
                                     <p>DB: {batch.id} </p>
                                 </a>
-
-                        ))}
+                        ))
+                        }
                     </div>
             </div>
         )
