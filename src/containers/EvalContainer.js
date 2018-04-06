@@ -36,23 +36,30 @@ class EvalContainer extends PureComponent {
             console.log(student.evaluations[0])
             return (
                 <div className="EvalContainer">
-                    EvalContainer
-                <h3>{student.name}</h3>
-               
-                <h5>(Batch {student.batch.id})</h5>
+                    <br/>
+                    <div className = "row">
+                        <div className= "col-4 ml-4">
+                    
+                            <h3>{student.name}  </h3>
+                            <h5>(Batch {student.batch.id}) </h5>
 
-                    <h6>Progress so far:</h6>
-                    <div className="ScoreTiles" style={{ display: "flex", flexDirection: 'row' }}>
-                        {student.evaluations.map((student, index) =>
+                            <img src={student.link} alt="x" height="200" width="200" /> 
+                                
+                        </div>
+                        <div className="col">
+                            <h3>Progress so far:</h3>
+                            <div className="ScoreTiles" style={{ display: "flex", flexDirection: 'row' }}>
+                                {student.evaluations.map((student, index) =>
 
-                            <ScoreTile key={index} color={student.grade} /> 
-                        )}
+                                    <ScoreTile key={index} color={student.grade} /> 
+                                )}
+                            </div>
+
+                            <EvalForm onSubmit={this.createEvaluation} />
+                        </div>
                     </div>
-                
-                    <EvalForm onSubmit={this.createEvaluation} />
-
-                    <br /><br /><br /> <br /><br /><br />
-                    <Link className="btn btn-secondary" to={`/batches/${student.batch.id}`} >Back</Link> 
+                    <br /><br />
+                    <Link className="btn btn-secondary ml-10" to={`/batches/${student.batch.id}`} >Back</Link> 
                 </div>
             )
         }

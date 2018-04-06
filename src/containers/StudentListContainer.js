@@ -92,12 +92,10 @@ import StudentTile from '../components/StudentTile'
 
             // Put non-evaluated students into histogram
             notEvaluated.map( student => {
-                
                 const grade = student.evaluations[0].grade
                 const id = student.id
 
                 histogram[grade].push(id)
-
             })
 
              // Put never-evaluated students into histogram
@@ -130,7 +128,6 @@ import StudentTile from '../components/StudentTile'
 
     }
 
-
         // Print the Algorithm Result for now
         console.log(pickStudent(histogram(notEvaluated, neverEvaluatedIDs)))
         
@@ -138,9 +135,6 @@ import StudentTile from '../components/StudentTile'
             return (
                 <div className="StudentListContainer">
                 
-                    <p>StudentListContainer</p>
-                
-
                     <div id="StatusBars" className="row justify-content-center" >
 
                         <StatusBar done={evaluatedToday} count={students.length} title={"Evaluated Today:"} />
@@ -148,26 +142,25 @@ import StudentTile from '../components/StudentTile'
                         <StatusBar done={sorted} count={students.length} title={"Class Summary:"}/>
 
                     </div>
-                    
-                    <button className="btn btn-secondary " onClick={this.handleAction}>Get random</button>
 
-                    <br/>
-
+                    <StudentForm onSubmit={this.createStudent} />  
                     
+                    {/* <button className="btn btn-secondary " onClick={this.handleAction}>Get random</button> */}
+
+     
                     <div id="StudentTiles" className="d-flex flex-wrap" >
                         {  students.map( 
                             (student, index) => {
 
                                 const lastEval = student.evaluations.sort((a, b) => new Date(b.date) - new Date(a.date)) //.reverse()
-                               // const today = new Date().toJSON().slice(0, 10)
 
-                                return <StudentTile key={index} name={student.name} id={student.id} evaluation={ lastEval[0] || "null" } 
+                                return <StudentTile key={index} name={student.name} id={student.id} link={student.link} evaluation={ lastEval[0] || "null" } 
                                 /> 
                             }
                         ) }               
                     </div>
 
-                    <StudentForm onSubmit={this.createStudent} />  
+                   
                     
                 </div>
             )

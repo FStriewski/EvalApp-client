@@ -27,13 +27,14 @@ export default class StudentTile extends PureComponent {
                             <div>  
                                 <h5 className="mb-1" sty>{this.props.name}</h5>
 
-                                <StudentTileIndicator color={this.props.evaluation.grade} />
+                                <img src={this.props.link}  alt="x" height="80" width="80"/> 
 
                                 <p>Last eval: {this.props.evaluation.date  }</p>
+                                <StudentTileIndicator color={this.props.evaluation.grade} />
+
                                 <h6>{(this.props.evaluation.date === today ? "Evaluated!" : "")}   </h6>
                             </div>
                         </div>
-
                     </a>    
             )
         }
