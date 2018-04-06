@@ -36,7 +36,7 @@ import '../styles/style.css'
             <div className="BatchContainer">
             <p>BatchList</p>
     
-                <Link to={'/login'} component={LogInContainer}>Back</Link> 
+                {/* <Link to={'/login'} component={LogInContainer}>Back</Link>  */}
                
                 <BatchForm onSubmit={this.createBatch} />
                 

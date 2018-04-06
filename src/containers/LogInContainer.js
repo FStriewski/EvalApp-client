@@ -12,13 +12,12 @@ class LogInContainer extends PureComponent {
     }
 
     render() {
-        if (this.props.login) return (
+        if (this.props.loginX !== null ) return (
             <Redirect to="/batches" />
         )
 
-        // if (this.props.login.hasOwnProperty('jwt') ) return (
-        //     <Redirect to="/batches" />
-        // )
+        console.log(this.props.loginX )
+
         return (
             <div className="LogInContainer">
                 <div className="row justify-content-center" id="LogInForm-container">
@@ -31,7 +30,7 @@ class LogInContainer extends PureComponent {
 
 const mapStateToProps = function (state) {
     return {
-        login: state.login
+        loginX: state.login
 
     }
 }

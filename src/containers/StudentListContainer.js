@@ -155,7 +155,7 @@ import StudentTile from '../components/StudentTile'
                         {  students.map( 
                             (student, index) => {
 
-                                const lastEval = student.evaluations.sort((a, b) => new Date(b.date) - new Date(a.date)) //.reverse()
+                                const lastEval = student.evaluations.sort((a, b) => new Date(b.date) - new Date(a.date)).reverse()
 
                                 return <StudentTile key={index} name={student.name} id={student.id} link={student.link} evaluation={ lastEval[0] || "null" } 
                                 /> 

@@ -1,5 +1,6 @@
 import * as request from 'superagent'
 import { FETCH_BATCHES, FETCH_ONE_BATCH, CREATE_BATCH } from './types'
+import history from '../history';
 
 const baseUrl = 'http://localhost:4444'
 
@@ -31,8 +32,11 @@ export const createBatch = (batch) => (dispatch) => {
     request
         .post(`${baseUrl}/batch`)
         .send(batch)
-        .then(response => dispatch({
+        .then(response => { 
+            dispatch({
             type: CREATE_BATCH,
             payload: response.body
-        }))
+        })
+        history.go()
+        })
 }

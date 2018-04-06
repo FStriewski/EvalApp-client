@@ -1,5 +1,6 @@
 import * as request from 'superagent'
 import { FETCH_STUDENTS, FETCH_ONE_STUDENT, CREATE_STUDENT } from './types'
+import history from '../history';
 
 const baseUrl = 'http://localhost:4444'
 
@@ -27,12 +28,14 @@ export const fetchOneStudent = (studentId) => (dispatch) => {
 
 
 export const createStudent = (batchId, student) => (dispatch) => {
-    console.log(batchId, student)
     request
         .post(`${baseUrl}/batch/${batchId}/student`)
         .send(student)
-        .then(response => dispatch({
-            type: CREATE_STUDENT,
-            payload: response.body
-        }))
+        .then(response => {
+            dispatch({
+                type: CREATE_STUDENT,
+                payload: response.body
+            })
+            history.go()
+        })
 }
