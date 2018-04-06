@@ -31,10 +31,10 @@ export const getGroups = (students) => {
     // Array of students with an evaluation, latest first
     let withEval = students2
         .filter(x => x.evaluations.length > 0) 
-        .filter( x =>  console.log(   x.evaluations
+        .filter( x =>  console.log(   x.evaluations.sort( (a,b) => new Date(b.date) - new Date (a.date) )
             //.filter(y => console.log(y.date === "2018-04-05"  )   )
-            .filter(y => y.date === "2018-04-05").length
-            > 0
+            // .filter(y => y.date === "2018-04-05").length
+            // > 0
         ) 
     )
 
