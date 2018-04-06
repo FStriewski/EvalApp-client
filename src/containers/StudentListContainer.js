@@ -91,19 +91,21 @@ import StudentTile from '../components/StudentTile'
                     <p>StudentListContainer</p>
                 
 
-                    <div class="row justify-content-center" >
+                    <div id="StatusBars" class="row justify-content-center" >
                         {/* <StatusBar action={this.handleAction(students)} done={evaluatedToday} /> */}
 
                         <StatusBar done={evaluatedToday} count={students.length} title={"Evaluated today"} />
 
-                        <StatusBar done={sorted} count={students.length} title={"Latest Eval:"}/>
+                        <StatusBar done={sorted} count={students.length} title={"Summary:"}/>
 
                     </div>
-                        <button className="btn btn-secondary " onClick={this.handleAction2(students)}>Get random</button>
+                    
+                    <button className="btn btn-secondary " onClick={this.handleAction2(students)}>Get random</button>
 
                     <br/>
-        
-                        <div className="d-flex flex-wrap" >
+
+                    
+                    <div id="StudentTiles" className="d-flex flex-wrap" >
                         {  students.map( 
                             (student, index) => {
 
@@ -114,10 +116,10 @@ import StudentTile from '../components/StudentTile'
                                 /> 
                             }
                         ) }               
-                        </div>
+                    </div>
 
-
-                    <StudentForm onSubmit={this.createStudent} />   
+                    <StudentForm onSubmit={this.createStudent} />  
+                    
                 </div>
             )
         }
