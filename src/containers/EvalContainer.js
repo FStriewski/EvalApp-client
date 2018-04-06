@@ -50,6 +50,9 @@ class EvalContainer extends PureComponent {
                     </div>
                 
                     <EvalForm onSubmit={this.createEvaluation} />
+
+                    <br /><br /><br /> <br /><br /><br />
+                    <Link className="btn btn-secondary" to={`/batches/${student.batch.id}`} >Back</Link> 
                 </div>
             )
         }

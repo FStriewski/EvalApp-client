@@ -20,7 +20,7 @@ export default class BatchForm extends PureComponent {
 
     render() {
         return (
-            <div class="row justify-content-center" id="BatchForm-container">
+            <div className="row justify-content-center" id="BatchForm-container">
                 <form className="form-inline" id="BatchForm" onSubmit={this.handleSubmit}>
 
                     <div className="form-group">

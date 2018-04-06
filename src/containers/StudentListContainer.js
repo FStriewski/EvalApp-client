@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+
+
+
 import PropTypes from 'prop-types'
 import BatchList from '../components/BatchList';
 import StatusBar from '../components/StatusBar'
@@ -8,6 +11,7 @@ import StudentForm from '../components/StudentForm'
 import { fetchStudents, createStudent } from '../actions/students'
 import { fetchBatches } from '../actions/batches'
 import { fetchOneBatch } from '../actions/batches'
+
 import '../styles/style.css'
 
 import StudentTile from '../components/StudentTile'
@@ -32,9 +36,17 @@ import StudentTile from '../components/StudentTile'
          this.props.createStudent(this.props.batches.id,student)
      }
 
+    
+     handleAction = (students) => {
+         //return getGroups(students)
+     }
+
   
     render() {
-        const {batches} = this.props
+        // <Link to={'/login'} component={LogInContainer}>Back</Link> 
+
+        const students = this.props.batches.students
+
         if (this.props.batches === undefined){
             console.log("not there")
             return 'Waiting...'}
@@ -44,44 +56,118 @@ import StudentTile from '../components/StudentTile'
                 return null
             }
 
-        const students=batches.students
-       
-        console.log(1 +" - Batch")
-        console.log(batches)
-        console.log(2 +" - Students")  
-        console.log(students)
-      
-        if(students){
-            // if (!students[0].evaluations[0].grade) return null
-            // console.log(students[0].evaluations[0].grade)
+        const today = new Date().toJSON().slice(0, 10)
+        const sorted = students
+                        .filter(student => student.evaluations.length > 0)
+                        .map(
+                           (student, index) => {
+                               student.evaluations = student.evaluations.sort((a, b) => new Date(b.date) - new Date(a.date))
+                               return student
+                            }
+                           )
+        // Students that have been evaluated today                   
+        const evaluatedToday = sorted.filter(
+                        student => student.evaluations[0].date === today
+        )
 
-            // const last =  students[0].evaluations.length-1
-            // const grade = students[0].evaluations[last].grade
-           
+        // Students that have NOT been evaluated today but have an eval already
+        const notEvaluated = sorted.filter(
+            student => student.evaluations[0].date !== today
+        )
+
+        // Students that have NEVER been evaluated today 
+        const neverEvaluatedIDs = students
+                                .filter( student => student.evaluations.length === 0 )
+                                .map(student => student.id)
+
+
+        // Extract student ids based on their latest grade                       
+        const histogram = (notEvaluated, neverEvaluatedIDs) => {
+
+            const histogram = {
+                red: [],
+                yellow: [],
+                green: []
+            }
+
+            // Put non-evaluated students into histogram
+            notEvaluated.map( student => {
+                
+                const grade = student.evaluations[0].grade
+                const id = student.id
+
+                histogram[grade].push(id)
+
+            })
+
+             // Put never-evaluated students into histogram
+            if (neverEvaluatedIDs.length > 0) {  
+                histogram["red"] = histogram["red"].concat(neverEvaluatedIDs)
+            } 
+
+            return histogram
+        }
+
+    // Pick a random student based on the weights    
+    const pickStudent = (histogram) => {
+
+        const { red, yellow, green } = histogram
+
+        let randomNumber = Math.floor(Math.random()*100)
+
+        if (randomNumber <= 53) {
+            console.log("The lucky student's ID (red) is " + red[Math.floor(Math.random() * red.length)] )
+            return red[Math.floor(Math.random() * red.length)]
+        } 
+        else if (randomNumber >= 81) {
+            console.log("The lucky student's ID (green) is " + green[Math.floor(Math.random() * green.length)])
+            return green[Math.floor(Math.random() * green.length)]
+        } 
+        else {
+            console.log("The lucky student's ID (yellow) is " + yellow[Math.floor(Math.random() * yellow.length)])
+            return yellow[Math.floor(Math.random() * yellow.length)]
+        }
+
+    }
+
+
+        // Print the Algorithm Result for now
+        console.log(pickStudent(histogram(notEvaluated, neverEvaluatedIDs)))
+        
+        if(students){
             return (
                 <div className="StudentListContainer">
                 
                     <p>StudentListContainer</p>
-                    <p>{new Date().toJSON().slice(0,10)}</p>
+                
 
-                    <StudentForm onSubmit={this.createStudent}/>  
+                    <div id="StatusBars" className="row justify-content-center" >
 
-                    <div class="row justify-content-center" >
-                        <StatusBar />
-                        <button className="btn btn-danger ">Get random</button>
+                        <StatusBar done={evaluatedToday} count={students.length} title={"Evaluated Today:"} />
+
+                        <StatusBar done={sorted} count={students.length} title={"Class Summary:"}/>
+
                     </div>
-                    <br/>
-        
-                    <div className="list-group" >
-                        {  students.map( 
-                            (student, index) => (
-                                <StudentTile key={index} name={student.name} id={student.id} evaluation={student.evaluations[ student.evaluations.length-1 ] || "null" }
-                                /> 
-                            )
-                        ) }
                     
-                        
+                    <button className="btn btn-secondary " onClick={this.handleAction}>Get random</button>
+
+                    <br/>
+
+                    
+                    <div id="StudentTiles" className="d-flex flex-wrap" >
+                        {  students.map( 
+                            (student, index) => {
+
+                                const lastEval = student.evaluations.sort((a, b) => new Date(b.date) - new Date(a.date)) //.reverse()
+                               // const today = new Date().toJSON().slice(0, 10)
+
+                                return <StudentTile key={index} name={student.name} id={student.id} evaluation={ lastEval[0] || "null" } 
+                                /> 
+                            }
+                        ) }               
                     </div>
+
+                    <StudentForm onSubmit={this.createStudent} />  
                     
                 </div>
             )

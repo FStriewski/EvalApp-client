@@ -19,9 +19,12 @@ export default class EvalForm extends PureComponent {
     }
 
 
+    //onclick="window.location.href='somewhere.php'"
+
     render() {
         return (
-            <form id="EvalForm" onSubmit={this.handleSubmit}>
+            
+                <form id="EvalForm" onSubmit={this.handleSubmit}>
 
                     <div className="btn-group" role="group" aria-label="Basic example">
 
@@ -48,10 +51,11 @@ export default class EvalForm extends PureComponent {
                 </div>
                 <br />
                 <button type="submit" className="btn btn-secondary mb-2 ">Save</button>
-                
+{/*                 
                 <br/>
-                <button type="" className="btn btn-secondary mb-2 " disabled>Next</button>
+                <button type="" className="btn btn-secondary mb-2 " disabled>Next</button> */}
             </form>
+            
         )
     }
 }
