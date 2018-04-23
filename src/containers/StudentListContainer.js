@@ -109,15 +109,12 @@ import StudentTile from '../components/StudentTile'
         let randomNumber = Math.floor(Math.random()*100)
 
         if (randomNumber <= 53) {
-           // console.log("The lucky student's ID (red) is " + red[Math.floor(Math.random() * red.length)] )
             return `The lucky student's ID (red) is ${red[Math.floor(Math.random() * red.length)]}`
         } 
         else if (randomNumber >= 81) {
-           // console.log("The lucky student's ID (green) is " + green[Math.floor(Math.random() * green.length)])
             return `The lucky student's ID (green) is  ${green[Math.floor(Math.random() * green.length)]} `
         } 
         else {
-          //  console.log("The lucky student's ID (yellow) is " + yellow[Math.floor(Math.random() * yellow.length)])
             return `The lucky student's ID (yellow) is  ${yellow[Math.floor(Math.random() * yellow.length)]}`
         }
 

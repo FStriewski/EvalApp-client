@@ -16,7 +16,7 @@ class App extends Component {
         <div className="App">
           <TitleBar />
 
-          {/* <Route exact path="/" render={() => <Redirect to="/login" />} /> */}
+           <Route exact path="/" render={() => <Redirect to="/login" />} /> 
 
           <Route exact path="/login" component={LogInContainer} />
           
