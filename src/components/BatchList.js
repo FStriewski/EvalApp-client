@@ -30,6 +30,7 @@ const styles = theme => ({
         borderColor: "#d9534f",
         backgroundColor: "#f2f2f2",
         fontSize: 15,
+        color: "#4d4d4d",
     },
     bar: {
         backgroundColor: "#f2f2f2",

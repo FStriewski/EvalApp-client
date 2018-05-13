@@ -24,7 +24,7 @@ export default class StudentTile extends PureComponent {
 
                     <div className=" column d-flex flex-direction: column justify-content-center" >
                             
-                        {/* <div className="column justify-content-center">   */}
+                        <div className="column justify-content-center">  
                                 <h5 className="mb-1" sty>{this.props.name}</h5>
 
                                 <img src={this.props.link}  alt="x" height="100" width="100"/> 
@@ -34,7 +34,7 @@ export default class StudentTile extends PureComponent {
 
                                 <h6>{(this.props.evaluation.date === today ? "Evaluated!" : "")}   </h6>
                             </div>
-                        {/* </div> */}
+                        </div>
                     </a>    
             )
         }

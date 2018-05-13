@@ -186,9 +186,6 @@ const styles = theme => ({
                             }
                         ) }               
                     </div>
-
-                   
-                    
                 </div>
             )
         }

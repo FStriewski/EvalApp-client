@@ -51,7 +51,7 @@ export default class EvalForm extends PureComponent {
                 </div>
                 <br />
 
-                <button type="submit" className="btn btn-secondary ml-200 " onClick={()=> history.goBack()}>Save</button>
+                <button type="submit" className="btn btn-success ml-200 " onClick={()=> history.goBack()}>Save</button>
 
             </form>
             
