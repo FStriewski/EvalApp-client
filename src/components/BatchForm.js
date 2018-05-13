@@ -20,32 +20,25 @@ export default class BatchForm extends PureComponent {
 
     render() {
         return (
-            <div className="row justify-content-center" id="BatchForm-container">
-                <form className="form-inline" id="BatchForm" onSubmit={this.handleSubmit}>
-
-                    <div className="form-group">
+            <div className="navbar navbar-light bg-light justify-content-center" id="BatchForm-container">
+                <form className="form-inline input-group" id="BatchForm" onSubmit={this.handleSubmit}>
+                   
                         <label htmlFor="number"></label>
-                        <input className="form-control mb-2 mr-sm-2"  name="number" id="number" value={
+                        <input className="form-control  mr-sm-3"  name="number" id="number" value={
                             this.state.number || ''
                         } onChange={this.handleChange} placeholder="Enter batch number" />
-                    </div>
-
-                    <div className="form-group">
+                  
                         <label htmlFor="startdate"></label>
-                        <input type="date"  className="form-control mb-2 mr-sm-2" name="startdate" id="startdate" value={
+                        <input type="date"  className="form-control mr-sm-3" name="startdate" id="startdate" value={
                             this.state.startdate || ''
                         } onChange={this.handleChange} placeholder="Enter Start Date" />
-                    </div>
-
-                    <div className="form-group">
+                 
                         <label htmlFor="enddate"></label>
-                        <input type="date" className="form-control mb-2 mr-sm-2" name="enddate" id="enddate" value={
+                        <input type="date" className="form-control mr-sm-3" name="enddate" id="enddate" value={
                             this.state.enddate || ''
                         } onChange={this.handleChange} placeholder="Enter End Date" />
-                    </div>
-
-
-                    <button type="submit" className="btn btn-secondary mb-2 ">Add</button>
+                  
+                        <button type="submit" className="btn btn-secondary ">Add</button>
                 </form>
             </div>
         )

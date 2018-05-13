@@ -52,14 +52,12 @@ const styles = theme => ({
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                         <Typography className={classes.heading}>+ Add more...</Typography>
                     </ExpansionPanelSummary>
-                    <ExpansionPanelDetails>
                         <Typography>
                             < BatchForm onSubmit = {
                                 this.createBatch
                             }
                             />
                         </Typography>
-                    </ExpansionPanelDetails>
                 </ExpansionPanel>
                
                 
