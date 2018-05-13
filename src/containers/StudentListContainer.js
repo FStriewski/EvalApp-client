@@ -12,6 +12,7 @@ import ExpansionPanel, {
 import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
+import Paper from 'material-ui/Paper';
 import * as combine from "lodash/fp/compose"
 import '../styles/style.css'
 
@@ -24,6 +25,12 @@ const styles = theme => ({
     bar: {
         backgroundColor: "#f2f2f2",
         borderColor: "black",
+    },
+    batchheader:{
+        fontSize: 28,
+        textAlign: "center",
+        padding: 4,
+        color: "#4d4d4d"     
     },
 });
 
@@ -46,7 +53,7 @@ const styles = theme => ({
          this.props.createStudent(this.props.batches.id,student)
      }
 
-    
+
      handleAction = (students) => {
          //return getGroups(students)
      }
@@ -141,7 +148,8 @@ const styles = theme => ({
         if(students){
             return (
                 <div className="StudentListContainer">
-                    <h3>Batch # {this.props.batches.id}</h3>
+                <Paper className={classes.bar}>
+                    <div className={classes.batchheader}>Batch {this.props.batches.id}</div>
    
                     <div id="StatusBars" className="row justify-content-center" >
 
@@ -153,6 +161,7 @@ const styles = theme => ({
 
                     <h6>Algorithm Result</h6> 
                     <p>{pickStudent(histogram(notEvaluated, neverEvaluatedIDs))}</p>
+                        </Paper>
 
                     <ExpansionPanel className={classes.bar}>
                         <ExpansionPanelSummary expandIcon={<ArrowDropDown />}>
