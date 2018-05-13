@@ -18,24 +18,20 @@ export default class StudentForm extends PureComponent {
 
     render() {
         return (
-            <div className="row justify-content-center" id="StudentForm-container">
-                <form className="form-inline" id="StudentForm" onSubmit={this.handleSubmit}>
+            <div className="navbar navbar-light bg-light justify-content-center mb-6" id="StudentForm-container">
+                <form className="form-inline input-group mb-6" id="StudentForm" onSubmit={this.handleSubmit}>
 
-                    <div className="form-group">
                         <label htmlFor="name"></label>
-                        <input className="form-control mb-2 mr-sm-2" name="name" id="name" value={
+                        <input className="form-control  mr-sm-3" name="name" id="name" value={
                             this.state.name || ''
                         } onChange={this.handleChange} placeholder="Student Name" />
-                    </div>
 
-                    <div className="form-group">
                         <label htmlFor="link"></label>
-                        <input type="url" className="form-control mb-2 mr-sm-2" name="link" id="link" value={
+                        <input type="url" className="form-control  mr-sm-3" name="link" id="link" value={
                             this.state.link || ''
                         } onChange={this.handleChange} placeholder="Image Link" />
-                    </div>
-
-                    <button type="submit" className="btn btn-secondary mb-2 mr-sm-2 ">Add</button>
+                
+                    <button type="submit" className="btn btn-secondary  mr-sm-3 ">Add</button>
                     {/* !This button might need to move or get a proper event handler */}
                     {/* <button type="submit" className="btn btn-secondary mb-2" disabled>Edit</button> */}
                 </form>

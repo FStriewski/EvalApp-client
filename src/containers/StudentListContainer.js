@@ -1,16 +1,31 @@
 import React, { PureComponent } from 'react'
-
 import { connect } from 'react-redux'
 import StatusBar from '../components/StatusBar'
 import StudentForm from '../components/StudentForm'
 import { fetchStudents, createStudent } from '../actions/students'
 import { fetchBatches } from '../actions/batches'
 import { fetchOneBatch } from '../actions/batches'
-
+import ExpansionPanel, {
+    ExpansionPanelSummary,
+    ExpansionPanelDetails,
+} from 'material-ui/ExpansionPanel'
+import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
+import Typography from 'material-ui/Typography';
+import { withStyles } from 'material-ui/styles';
+import * as combine from "lodash/fp/compose"
 import '../styles/style.css'
 
 import StudentTile from '../components/StudentTile'
 
+const styles = theme => ({
+    heading: {
+        fontSize: 18,
+    },
+    bar: {
+        backgroundColor: "#f2f2f2",
+        borderColor: "black",
+    },
+});
 
  class StudentListContainer extends PureComponent {
 
@@ -39,7 +54,7 @@ import StudentTile from '../components/StudentTile'
   
     render() {
         // <Link to={'/login'} component={LogInContainer}>Back</Link> 
-
+        const { classes } = this.props
         const students = this.props.batches.students
 
         if (this.props.batches === undefined){
@@ -127,9 +142,7 @@ import StudentTile from '../components/StudentTile'
             return (
                 <div className="StudentListContainer">
                     <h3>Batch # {this.props.batches.id}</h3>
-
-                    <div className="row justify-content-center"> <StudentForm onSubmit={this.createStudent} /></div>
-                
+   
                     <div id="StatusBars" className="row justify-content-center" >
 
                         <StatusBar done={evaluatedToday} count={students.length} title={"Evaluated Today"} />
@@ -140,6 +153,18 @@ import StudentTile from '../components/StudentTile'
 
                     <h6>Algorithm Result</h6> 
                     <p>{pickStudent(histogram(notEvaluated, neverEvaluatedIDs))}</p>
+
+                    <ExpansionPanel className={classes.bar}>
+                        <ExpansionPanelSummary expandIcon={<ArrowDropDown />}>
+                            <Typography className={classes.heading}>+ Add Student...</Typography>
+                        </ExpansionPanelSummary>
+                        <Typography >
+                            < StudentForm onSubmit={
+                                this.createStudent
+                            }
+                            />
+                        </Typography>
+                    </ExpansionPanel>
 
                     <div id="StudentTiles" className="d-flex flex-wrap" >
                         {  students.map( 
@@ -168,4 +193,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { fetchBatches, fetchOneBatch, fetchStudents, createStudent })(StudentListContainer)
+export default combine(
+    withStyles(styles),
+    connect(mapStateToProps, { fetchBatches, fetchOneBatch, fetchStudents, createStudent })
+)(StudentListContainer)

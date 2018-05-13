@@ -8,12 +8,11 @@ import ExpansionPanel, {
     ExpansionPanelDetails,
 } from 'material-ui/ExpansionPanel'
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 import Typography from 'material-ui/Typography';
-import {
-    withStyles
-} from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import * as combine from "lodash/fp/compose"
+import Link from '@material-ui/icons/Link';
 import '../styles/style.css'
 
 
@@ -26,11 +25,16 @@ const styles = theme => ({
         borderColor: "#d9534f",
         color: "#d9534f",
         fontSize: 18,
+        paddingTop: 30,
     },
     cell: {
         borderColor: "#d9534f",
-        backgroundColor: "#F3F0F2",
+        backgroundColor: "#f2f2f2",
         fontSize: 15,
+    },
+    bar: {
+        backgroundColor: "#f2f2f2",
+        borderColor: "black",
     },
 });
 
@@ -59,9 +63,9 @@ const styles = theme => ({
         return (       
             <div className="BatchContainer">
 
-                <ExpansionPanel>
-                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography className={classes.heading}>+ Add more...</Typography>
+                <ExpansionPanel className={classes.bar}>
+                    <ExpansionPanelSummary expandIcon={<ArrowDropDown />}>
+                        <Typography className={classes.heading}>+ Add Batch...</Typography>
                     </ExpansionPanelSummary>
                         <Typography>
                             < BatchForm onSubmit = {
@@ -70,6 +74,7 @@ const styles = theme => ({
                             />
                         </Typography>
                 </ExpansionPanel>
+
 
                 <Table className={classes.table}>
                     <TableHead >
@@ -85,25 +90,27 @@ const styles = theme => ({
 
                         </TableRow>
                     </TableHead>
+
+
                     <TableBody>
-                    
                     {batches.sort( (a,b) => a.id -b.id    )
                             .map(batch => {
                                 return (
-                                    <TableRow key={batch.id}>
-                                <TableCell className={classes.cell}>{batch.id}</TableCell>
+                                
+                                <TableRow key={batch.id}>
+                                    <TableCell className={classes.cell}>{batch.id}</TableCell>
 
-                                <TableCell className={classes.cell}>Batch {batch.number}</TableCell>
+                                    <TableCell className={classes.cell}>Batch {batch.number}</TableCell>
 
-                                <TableCell className={classes.cell}>{batch.startdate}</TableCell>
+                                    <TableCell className={classes.cell}>{batch.startdate}</TableCell>
 
-                                <TableCell className={classes.cell}>{batch.enddate}</TableCell>
+                                    <TableCell className={classes.cell}>{batch.enddate}</TableCell>
 
-                                <TableCell className={classes.cell}><a href={"batches/" + batch.id}  target="_self">Link</a></TableCell>
-
-                                    </TableRow>
-              )
-                            })}
+                                    <TableCell className={classes.cell}><a href={"batches/" + batch.id}  target="_self"><Link/></a></TableCell>
+                                </TableRow>
+                                )
+                            })
+                        }
                     </TableBody>
                 </Table>  
             </div>
