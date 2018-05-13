@@ -3,10 +3,28 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import BatchForm from './BatchForm'
 import { fetchBatches, createBatch } from '../actions/batches'
+import ExpansionPanel, {
+    ExpansionPanelSummary,
+    ExpansionPanelDetails,
+} from 'material-ui/ExpansionPanel'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Typography from 'material-ui/Typography';
+import {
+    withStyles
+} from 'material-ui/styles';
+import * as combine from "lodash/fp/compose"
 import '../styles/style.css'
 
+
+const styles = theme => ({
+  heading: {
+      color: "#711F9B",
+      fontSize: 16,
+  }
+});
+
  class BatchContainer extends PureComponent {
-    
+
 //! Test functionality with string but needs to be date later on 
     static propTypes = {
          batches: PropTypes.arrayOf(PropTypes.shape({
@@ -20,19 +38,31 @@ import '../styles/style.css'
         this.props.fetchBatches()
     }
 
-
      createBatch = (batch) => {
          this.props.createBatch(batch)
      }
 
-
     render() {
-        const { batches } = this.props
+        const { batches, classes } = this.props
         
         return (       
             <div className="BatchContainer">
+
+                <ExpansionPanel>
+                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                        <Typography className={classes.heading}>+ Add more...</Typography>
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails>
+                        <Typography>
+                            < BatchForm onSubmit = {
+                                this.createBatch
+                            }
+                            />
+                        </Typography>
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
                
-                <BatchForm onSubmit={this.createBatch} />
+                
                 
                     <div className="list-group">
                     {batches.sort( (a,b) => a.id -b.id    )
@@ -58,6 +88,9 @@ const mapStateToProps = function (state) {
     }
 }
 
-export default connect(mapStateToProps, { fetchBatches, createBatch })(BatchContainer)
+export default combine(
+    withStyles(styles),
+    connect(mapStateToProps, { fetchBatches, createBatch })
+)(BatchContainer)
 
-// export default BatchContainer
+
