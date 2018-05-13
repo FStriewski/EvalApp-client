@@ -20,21 +20,21 @@ export default class StudentTile extends PureComponent {
 
             return (
 
-                    <a href={"../students/" + this.props.id + "/evaluation"} className=" w-25 p-10 list-group-item list-group-item-action flex-row align-items-start ">
+                    <a href={"../students/" + this.props.id + "/evaluation"} className=" w-25  list-group-item list-group-item-action flex-row align-items-start ">
 
-                        <div className=" d-flex flex-wrap w-100 justify-content-center" >
+                    <div className=" column d-flex flex-direction: column justify-content-center" >
                             
-                            <div>  
+                        {/* <div className="column justify-content-center">   */}
                                 <h5 className="mb-1" sty>{this.props.name}</h5>
 
-                                <img src={this.props.link}  alt="x" height="80" width="80"/> 
+                                <img src={this.props.link}  alt="x" height="100" width="100"/> 
 
                                 <p>Last eval: {this.props.evaluation.date  }</p>
                                 <StudentTileIndicator color={this.props.evaluation.grade} />
 
                                 <h6>{(this.props.evaluation.date === today ? "Evaluated!" : "")}   </h6>
                             </div>
-                        </div>
+                        {/* </div> */}
                     </a>    
             )
         }
