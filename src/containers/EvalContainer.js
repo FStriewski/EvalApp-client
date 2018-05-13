@@ -2,13 +2,20 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import EvalForm from '../components/EvalForm'
-
 import ScoreTile from '../components/ScoreTile'
-
+import Paper from 'material-ui/Paper';
 import { fetchOneStudent } from '../actions/students'
 import { createEvaluation } from '../actions/evaluations'
-
+import { withStyles } from 'material-ui/styles';
+import * as combine from "lodash/fp/compose"
 import '../styles/style.css'
+
+const styles = theme => ({
+    paper: {
+        textAlign: "center",
+        padding: 20,
+    },
+});
 
 class EvalContainer extends PureComponent {
 
@@ -21,9 +28,8 @@ class EvalContainer extends PureComponent {
         this.props.createEvaluation(this.props.student.id, evaluation)
     }
 
-
     render() {
-        const { student } = this.props
+        const { student, classes } = this.props
 
         console.log("Waiting...")
         console.log(student.evaluations)
@@ -36,15 +42,18 @@ class EvalContainer extends PureComponent {
                 <div className="EvalContainer">
                     <br/>
                     <div className = "row">
-                        <div className= "col-4 ml-4">
+                        <div className= "col-3 ml-4">
                     
+                    <Paper className={classes.paper}>
                             <h3>{student.name}  </h3>
-                            <h5>(Batch {student.batch.id}) </h5>
+                            <h6>(Batch {student.batch.id}) </h6>
 
-                            <img src={student.link} alt="x" height="200" width="200" /> 
-                                
+                            <img src={student.link} alt="x" height="150" width="150" />                        
+                    </Paper>
                         </div>
-                        <div className="col">
+                        <div className="col-1">
+                        </div>
+                            <div className="col">
                             <h3>Progress so far:</h3>
                             <div className="ScoreTiles" style={{ display: "flex", flexDirection: 'row' }}>
                                 {student.evaluations.map((student, index) =>
@@ -56,8 +65,6 @@ class EvalContainer extends PureComponent {
                             <EvalForm onSubmit={this.createEvaluation} />
                         </div>
                     </div>
-                    {/* <br /><br />
-                    <Link className="btn btn-secondary ml-10" to={`/batches/${student.batch.id}`} >Back</Link>  */}
                 </div>
             )
         }
@@ -71,4 +78,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { fetchOneStudent, createEvaluation })(EvalContainer)
+export default combine(
+    withStyles(styles),
+     connect(mapStateToProps, { fetchOneStudent, createEvaluation })
+)(EvalContainer)

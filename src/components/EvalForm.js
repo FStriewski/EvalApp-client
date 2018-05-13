@@ -24,14 +24,16 @@ export default class EvalForm extends PureComponent {
             
                 <form id="EvalForm" onSubmit={this.handleSubmit}>
 
-                    <div className="btn-group" role="group" aria-label="Basic example">
 
-                    <button type="button" id="greenButton" className="btn btn-success" name="grade" value="green" onClick={this.handleChange} >Yay!!</button>
+                <div className="btn-group justify-content-end" role="group" aria-label="Basic example">
 
-                    <button type="button" id="yellowButton" className="btn btn-warning" name="grade" value="yellow"  onClick={this.handleChange} >Nah..</button>
+                    <button type="button" id="greenButton" className="btn btn-success" name="grade" value="green" onClick={this.handleChange} >Good</button>
 
-                    <button type="button" id="redButton" className="btn btn-danger" name="grade" value="red"  onClick={this.handleChange}>Sucks</button>
-                    </div>
+                    <button type="button" id="yellowButton" className="btn btn-warning" name="grade" value="yellow" onClick={this.handleChange} >Ok</button>
+
+                    <button type="button" id="redButton" className="btn btn-danger" name="grade" value="red" onClick={this.handleChange}>Bad</button>
+
+                </div>
                 
                 <br/>
                 <div className="form-group">
@@ -48,7 +50,8 @@ export default class EvalForm extends PureComponent {
                     } onChange={this.handleChange} placeholder="Remarks" />
                 </div>
                 <br />
-                <button type="submit" className="btn btn-danger mb-2 " onClick={()=> history.goBack()}>Save</button>
+
+                <button type="submit" className="btn btn-secondary ml-200 " onClick={()=> history.goBack()}>Save</button>
 
             </form>
             

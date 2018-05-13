@@ -72,6 +72,7 @@
     font-size: 10px;
     height: 400px;
     margin: 2%;
+    background-color: #f2f2f2;
 }
 
 #EvalForm {
@@ -93,29 +94,29 @@
 }
 
   .ScoreTile.fill-red {
-      background-color: #D0021B;
+      background-color: #ff4444;
     
   }
 
   .ScoreTile.fill-green {
-      background-color: green;
+      background-color: #00C851;
   }
 
   .ScoreTile.fill-yellow {
-      background-color: yellow;
+      background-color: #ffbb33;
   }
 
     .StudentTile.fill-red {
-        background-color: #D0021B;
+        background-color: #ff4444;
           z-index: 100;
     }
 
     .StudentTile.fill-green {
-        background-color: green;
+        background-color: #00C851;
           z-index: 100;
     }
 
     .StudentTileTile.fill-yellow {
-        background-color: yellow;
+        background-color: #ffbb33;
           z-index: 100;
     }

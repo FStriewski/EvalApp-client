@@ -18,12 +18,11 @@ import '../styles/style.css'
 
 const styles = theme => ({
   heading: {
-      color: "#d9534f",
       fontSize: 18,
   },
     header: {
         borderColor: "#d9534f",
-        color: "#d9534f",
+        color: "#4d4d4d",
         fontSize: 18,
         paddingTop: 30,
     },
