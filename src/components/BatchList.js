@@ -7,6 +7,7 @@ import ExpansionPanel, {
     ExpansionPanelSummary,
     ExpansionPanelDetails,
 } from 'material-ui/ExpansionPanel'
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from 'material-ui/Typography';
 import {
@@ -18,9 +19,19 @@ import '../styles/style.css'
 
 const styles = theme => ({
   heading: {
-      color: "#711F9B",
-      fontSize: 16,
-  }
+      color: "#d9534f",
+      fontSize: 18,
+  },
+    header: {
+        borderColor: "#d9534f",
+        color: "#d9534f",
+        fontSize: 18,
+    },
+    cell: {
+        borderColor: "#d9534f",
+        backgroundColor: "#F3F0F2",
+        fontSize: 15,
+    },
 });
 
  class BatchContainer extends PureComponent {
@@ -59,22 +70,42 @@ const styles = theme => ({
                             />
                         </Typography>
                 </ExpansionPanel>
-               
-                
-                
-                    <div className="list-group">
+
+                <Table className={classes.table}>
+                    <TableHead >
+                        <TableRow >
+
+                            <TableCell className={classes.header}>#</TableCell>
+                            <TableCell className={classes.header}>Name</TableCell>
+       
+                            <TableCell className={classes.header}>Start</TableCell>
+                            <TableCell className={classes.header}>End</TableCell>
+              
+                            <TableCell className={classes.header}>Link </TableCell>
+
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                    
                     {batches.sort( (a,b) => a.id -b.id    )
-                            .map( (batch, index) =>( 
-                                <a href={"batches/" + batch.id} className="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div className="d-flex w-100 justify-content-between">
-                                        <h5 className="mb-1">Batch {batch.number}</h5>
-                                    </div>
-                                    <p className="mb-1">Start: {batch.startdate}  --- End: {batch.enddate}</p>
-                                    <p>DB: {batch.id} </p>
-                                </a>
-                        ))
-                        }
-                    </div>
+                            .map(batch => {
+                                return (
+                                    <TableRow key={batch.id}>
+                                <TableCell className={classes.cell}>{batch.id}</TableCell>
+
+                                <TableCell className={classes.cell}>Batch {batch.number}</TableCell>
+
+                                <TableCell className={classes.cell}>{batch.startdate}</TableCell>
+
+                                <TableCell className={classes.cell}>{batch.enddate}</TableCell>
+
+                                <TableCell className={classes.cell}><a href={"batches/" + batch.id}  target="_self">Link</a></TableCell>
+
+                                    </TableRow>
+              )
+                            })}
+                    </TableBody>
+                </Table>  
             </div>
         )
     }

@@ -38,7 +38,7 @@ export default class BatchForm extends PureComponent {
                             this.state.enddate || ''
                         } onChange={this.handleChange} placeholder="Enter End Date" />
                   
-                        <button type="submit" className="btn btn-secondary ">Add</button>
+                        <button type="submit" className="btn btn-success ">Add</button>
                 </form>
             </div>
         )

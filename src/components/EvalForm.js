@@ -48,7 +48,7 @@ export default class EvalForm extends PureComponent {
                     } onChange={this.handleChange} placeholder="Remarks" />
                 </div>
                 <br />
-                <button type="submit" className="btn btn-secondary mb-2 " onClick={()=> history.goBack()}>Save</button>
+                <button type="submit" className="btn btn-danger mb-2 " onClick={()=> history.goBack()}>Save</button>
 
             </form>
             
