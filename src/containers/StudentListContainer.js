@@ -149,8 +149,8 @@ const styles = theme => ({
         if(students){
             return (
                 <div className="StudentListContainer">
-                <EvalDashboard />
-                {/* <Paper className={classes.bar}>
+                    <EvalDashboard evaluatedToday={evaluatedToday} sorted={sorted} />
+                {/* <Paper className={classes.bar} evaluatedToday={}>
                     <div className={classes.batchheader}>Batch {this.props.batches.id}</div>
    
                     <div id="StatusBars" className="row justify-content-center" >
