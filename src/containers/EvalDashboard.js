@@ -40,7 +40,7 @@ const styles = theme => ({
                 </div>
                 <div className="col" >
                     <Paper className="dashboard-tile">
- 
+                        <h5>Batch Score</h5>
                         <StatusBar done={this.props.evaluatedToday} count={students.length} title={"Evaluated Today"} />
 
                         <StatusBar done={this.props.sorted} count={students.length} title={"Class Summary"} />
@@ -48,8 +48,9 @@ const styles = theme => ({
                 </div>
                 <div className="col" >
                     <Paper className="dashboard-tile">
-
-                        Student Picker
+                        <h5>Student Picker</h5>
+                        <div></div>
+                        <button className="btn btn-success">Pick</button>
                 </Paper>
                 </div>
 
