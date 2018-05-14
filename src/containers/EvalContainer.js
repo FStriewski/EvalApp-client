@@ -47,8 +47,7 @@ class EvalContainer extends PureComponent {
                     <Paper className={classes.paper}>
                             <h3>{student.name}  </h3>
                             <h6>(Batch {student.batch.id}) </h6>
-
-                            <img src={student.link} alt="x" height="150" width="150" />                        
+                            <img src={student.link} alt="x" height="150" width="150" />                 
                     </Paper>
                         </div>
                         <div className="col-1">

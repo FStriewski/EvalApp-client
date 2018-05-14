@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import StatusBar from '../components/StatusBar'
 import StudentForm from '../components/StudentForm'
+import EvalDashboard from './EvalDashboard'
 import { fetchStudents, createStudent } from '../actions/students'
 import { fetchBatches } from '../actions/batches'
 import { fetchOneBatch } from '../actions/batches'
@@ -148,7 +149,8 @@ const styles = theme => ({
         if(students){
             return (
                 <div className="StudentListContainer">
-                <Paper className={classes.bar}>
+                <EvalDashboard />
+                {/* <Paper className={classes.bar}>
                     <div className={classes.batchheader}>Batch {this.props.batches.id}</div>
    
                     <div id="StatusBars" className="row justify-content-center" >
@@ -161,7 +163,7 @@ const styles = theme => ({
 
                     <h6>Algorithm Result</h6> 
                     <p>{pickStudent(histogram(notEvaluated, neverEvaluatedIDs))}</p>
-                        </Paper>
+                        </Paper> */}
 
                     <ExpansionPanel className={classes.bar}>
                         <ExpansionPanelSummary expandIcon={<ArrowDropDown />}>
