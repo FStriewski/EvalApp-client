@@ -74,6 +74,7 @@ const styles = theme => ({
                                 this.createBatch
                             }
                             />
+                            <br/>
                         </Typography>
                 </ExpansionPanel>
 
