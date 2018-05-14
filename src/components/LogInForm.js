@@ -32,7 +32,7 @@ export default class LogInForm extends PureComponent {
                     <input type="password" className="form-control" name="password" id="password" value={this.state.password} onChange={this.handleChange} placeholder="Password"/>
                         </div>
 
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-success">Login</button>
 
                     </form>
         )

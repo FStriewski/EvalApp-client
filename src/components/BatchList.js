@@ -19,12 +19,14 @@ import '../styles/style.css'
 const styles = theme => ({
   heading: {
       fontSize: 18,
+     
   },
     header: {
         borderColor: "#d9534f",
         color: "#4d4d4d",
         fontSize: 18,
         paddingTop: 30,
+        backgroundColor: "#f2f2f2",
     },
     cell: {
         borderColor: "#d9534f",
