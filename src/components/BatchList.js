@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import BatchForm from './BatchForm'
-import { fetchBatches, createBatch } from '../actions/batches'
+import { fetchBatches, createBatch, removeBatch } from '../actions/batches'
 import ExpansionPanel, {
     ExpansionPanelSummary,
     ExpansionPanelDetails,
@@ -59,6 +59,10 @@ const styles = theme => ({
          this.props.createBatch(batch)
      }
 
+     removeBatch = (batchID) => {
+         this.props.removeBatch(batchID)
+     }
+
     render() {
         const { batches, classes } = this.props
         
@@ -91,6 +95,8 @@ const styles = theme => ({
               
                             <TableCell className={classes.header}>Link </TableCell>
 
+                            <TableCell className={classes.header}>Remove </TableCell>
+
                         </TableRow>
                     </TableHead>
 
@@ -110,6 +116,8 @@ const styles = theme => ({
                                     <TableCell className={classes.cell}>{batch.enddate}</TableCell>
 
                                     <TableCell className={classes.cell}><a href={"batches/" + batch.id}  target="_self"><Link/></a></TableCell>
+
+                                    <TableCell className={classes.cell}> <button onClick={() => this.removeBatch(batch.id)}> X </button></TableCell>
                                 </TableRow>
                                 )
                             })
@@ -129,7 +137,7 @@ const mapStateToProps = function (state) {
 
 export default combine(
     withStyles(styles),
-    connect(mapStateToProps, { fetchBatches, createBatch })
+    connect(mapStateToProps, { fetchBatches, createBatch, removeBatch })
 )(BatchContainer)
 
 

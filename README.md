@@ -36,7 +36,8 @@ The purpose of the app is to give teachers a tool to manage classes and students
 | /batch/     | GET       | Get all classes           |
 | /batch/:id  | GET       | Get single class          |
 | /batch/     | POST      | Add single class          |
-| /products/:id  | PUT    | Update single class       |
+| /batch/:id  | PUT       | Update single class       |
+| /batch/:id  | DELETE    | Delete single class       |
 
 #### Student routes:
 

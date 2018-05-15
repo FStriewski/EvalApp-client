@@ -1,5 +1,5 @@
 import * as request from 'superagent'
-import { FETCH_BATCHES, FETCH_ONE_BATCH, CREATE_BATCH } from './types'
+import { FETCH_BATCHES, FETCH_ONE_BATCH, CREATE_BATCH, REMOVE_BATCH } from './types'
 import history from '../history';
 
 const baseUrl = 'http://localhost:4444'
@@ -21,6 +21,15 @@ export const fetchOneBatch = (batchId) => (dispatch) => {
         .get(`${baseUrl}/batch/${batchId}`)
         .then(response => dispatch({
             type: FETCH_ONE_BATCH,
+            payload: response.body
+        }))
+        .catch(e => console.log(e))
+}
+export const removeBatch = (batchId) => (dispatch) => {
+    request
+        .delete(`${baseUrl}/batch/${batchId}`)
+        .then(response => dispatch({
+            type: REMOVE_BATCH,
             payload: response.body
         }))
         .catch(e => console.log(e))
