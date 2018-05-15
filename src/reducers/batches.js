@@ -1,5 +1,5 @@
 
-import { FETCH_BATCHES, FETCH_ONE_BATCH, CREATE_BATCH  } from '../actions/types'
+import { FETCH_BATCHES, FETCH_ONE_BATCH, CREATE_BATCH, REMOVE_BATCH  } from '../actions/types'
 
 
 export default function (state = [], action) {
@@ -13,6 +13,9 @@ export default function (state = [], action) {
 
         case CREATE_BATCH:
             return [...state, action.payload]
+
+        case REMOVE_BATCH:
+            console.log("Batch deleted")
 
         default:
             return state
