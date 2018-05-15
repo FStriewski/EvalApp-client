@@ -149,3 +149,8 @@
     margin-top: 5%;
     margin-bottom: 5%;
 }
+
+#titlebar{
+    background-color: #d63737;
+    box-shadow: 7px 7px 22px -8px rgba(0, 0, 0, 0.75);
+}
