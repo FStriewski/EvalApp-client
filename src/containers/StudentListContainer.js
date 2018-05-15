@@ -12,8 +12,8 @@ import ExpansionPanel, {
 } from 'material-ui/ExpansionPanel'
 import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 import Typography from 'material-ui/Typography';
-import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
+import { withStyles } from 'material-ui/styles';
 import * as combine from "lodash/fp/compose"
 import '../styles/style.css'
 

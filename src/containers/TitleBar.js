@@ -5,6 +5,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { FormControlLabel, FormGroup } from 'material-ui/Form';
 import Menu, { MenuItem } from 'material-ui/Menu';
+import { withStyles } from 'material-ui/styles';
+import * as combine from "lodash/fp/compose"
 
 import '../styles/style.css'
 
@@ -19,19 +21,16 @@ const styles = {
         marginLeft: -12,
         marginRight: 20,
     },
+    title: {
+        fontSize: 20,
+    }
 };
 
 
-export default class TitleBar extends PureComponent {
+ class TitleBar extends PureComponent {
   state = {
       anchorEl: null,
   };
-
-    handleChange = (event, checked) => {
-        this.setState({
-            auth: checked
-        });
-    };
 
     handleMenu = event => {
         this.setState({
@@ -53,13 +52,10 @@ export default class TitleBar extends PureComponent {
         return (
                 <nav id="titlebar" className="navbar">
                 <School id="batchesIcon" ></School>
-                <a id ="batchesLink" className="navbar-brand" href="/batches">
-                              Student Evaluations
-                </a>
+                
+                <div className={classes.title}> Student Evaluations </div>
 
                 <IconButton
-                  aria-owns={open ? 'menu-appbar' : null}
-                  aria-haspopup="true"
                   onClick={this.handleMenu}
                   color="inherit"
                 >
@@ -68,19 +64,11 @@ export default class TitleBar extends PureComponent {
                 <Menu
                   id="menu-appbar"
                   anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
                   open={open}
                   onClose={this.handleClose}
                 >
-                  <MenuItem onClick={this.handleClose}><a id="batchesLink" href="/batches"> Batches</a></MenuItem>
-                  <MenuItem onClick={this.handleClose}><a id="logoutLink" href="/logout"> Logout</a></MenuItem>
+                  <MenuItem onClick={this.handleClose}><a id="batchesLink" className={classes.menuItem} href="/batches"> Batches</a></MenuItem>
+                    <MenuItem onClick={this.handleClose}><a id="logoutLink" className={classes.menuItem} href="/logout"> Logout</a></MenuItem>
                 </Menu>
 
             </nav>
@@ -88,3 +76,7 @@ export default class TitleBar extends PureComponent {
         )
     }
 }
+
+export default combine(
+    withStyles(styles),
+)(TitleBar)
