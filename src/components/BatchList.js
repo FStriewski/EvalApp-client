@@ -115,9 +115,9 @@ const styles = theme => ({
 
                                     <TableCell className={classes.cell}>{batch.enddate}</TableCell>
 
-                                    <TableCell className={classes.cell}><a href={"batches/" + batch.id}  target="_self"><Link/></a></TableCell>
+                                    <TableCell className={classes.cell}><a className="btn btn-outline-dark" href={"batches/" + batch.id}  target="_self">#</a></TableCell>
 
-                                    <TableCell className={classes.cell}> <button onClick={() => this.removeBatch(batch.id)}> X </button></TableCell>
+                                        <TableCell className={classes.cell}> <button className="btn btn-outline-danger" onClick={() => this.removeBatch(batch.id)}> X </button></TableCell>
                                 </TableRow>
                                 )
                             })
